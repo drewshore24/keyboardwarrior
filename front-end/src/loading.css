@@ -1,0 +1,78 @@
+.loading {
+  margin-top: 40vh;
+  height: 10vh;
+  animation: spin 0.8s infinite;
+}
+
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+  10% {
+    rotate: 36deg;
+  }
+  20% {
+    rotate: 72deg;
+  }
+  30% {
+    rotate: 108deg;
+  }
+  40% {
+    rotate: 144deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  60% {
+    rotate: 216deg;
+  }
+  70% {
+    rotate: 252deg;
+  }
+  80% {
+    rotate: 288deg;
+  }
+  90% {
+    rotate: 324deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+.loading-1,
+.loading-2,
+.loading-3 {
+  font-size: 24px; /* Adjust the size as needed */
+  opacity: 0;
+  animation: dotAnimation 2s infinite;
+  animation-fill-mode: forwards;
+}
+
+/* Individual animation delays */
+.loading-1 {
+  animation-delay: 0s;
+}
+
+.loading-2 {
+  animation-delay: 0.5s;
+}
+
+.loading-3 {
+  animation-delay: 1s;
+}
+
+/* Keyframes for the dots */
+@keyframes dotAnimation {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  25%,
+  70% {
+    opacity: 1;
+  }
+  75%,
+  100% {
+    opacity: 0;
+  }
+}

@@ -4,6 +4,7 @@
 
 * {
   background-color: #d2e0fb;
+  box-sizing: border-box;
 }
 h1 {
   color: white;

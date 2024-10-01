@@ -1,23 +1,19 @@
+import { useContext } from "react";
+import { UserContext } from "../context/AuthContext";
 import Keyboard from "./Keyboard";
-import { Link } from "react-router-dom";
+import NavBar from "./NavBar";
 
 function Home() {
+  const { isLoggedOut, user } = useContext(UserContext);
+
   return (
     <>
-      <nav>
-        <Link className="link" to="/login">
-          Login
-        </Link>
-        <Link className="link" to="/leaderboard">
-          Leaderboard
-        </Link>
-        <Link className="link" to="/statistics">
-          Statistics
-        </Link>
-      </nav>
+      <NavBar />
       <h1>Le Keyboard Warrior</h1>
+
       <br />
       <br />
+      {isLoggedOut ? null : <h2>Hello {user?.userName} </h2>}
       <h2>WPM:100 Accuracy: 50%</h2>
       <Keyboard />
     </>
