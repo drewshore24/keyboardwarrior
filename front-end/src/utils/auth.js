@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
 } from "firebase/auth";
 
 import { doc, setDoc } from "firebase/firestore";
@@ -31,11 +32,10 @@ export const signUp = async (email, password, userData) => {
       ...userData,
       uid: user.user.uid,
     });
+    sendEmailVerification(auth.currentUser);
 
     return user.user;
   } catch (error) {
-    console.log(error);
-
     return error;
   }
 };

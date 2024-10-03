@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC3FJ2XWwxvEjhEg528D91qnavZhq293iA",
-  authDomain: "keyboardwarrior-8319e.firebaseapp.com",
-  projectId: "keyboardwarrior-8319e",
-  storageBucket: "keyboardwarrior-8319e.appspot.com",
-  messagingSenderId: "1072198139180",
-  appId: "1:1072198139180:web:16375ac1131f4319908089",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
