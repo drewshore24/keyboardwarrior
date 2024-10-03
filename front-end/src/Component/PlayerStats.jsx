@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
-import { auth, db } from "../firebase/fire"; // Assuming firebase is initialized here
+import { useState } from "react";
+import { auth, db } from "../firebase/fire";
 import { collection, doc, setDoc } from "firebase/firestore";
+import { UserContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 const PlayerStats = () => {
-  const [user, setUser] = useState(null);
+  const { user } = useContext(UserContext);
   const [stats, setStats] = useState({
     gamesPlayed: 0,
     highScore: 0,
@@ -12,19 +14,6 @@ const PlayerStats = () => {
     latestScore: 0,
     speed: 0,
   });
-
-  useEffect(() => {
-    // Listen for authentication changes
-    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        setUser(null);
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
 
   const handleSaveStats = async () => {
     if (user) {

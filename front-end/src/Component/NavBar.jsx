@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { logout } from "../utils/auth";
+import Nav from "./Nav";
 
 const NavBar = () => {
-  const { isLoggedOut, setShowModal } = useContext(UserContext);
+  const { isLoggedOut, setShowModal, user } = useContext(UserContext);
 
   const handleLogout = () => {
     logout();
@@ -12,7 +13,7 @@ const NavBar = () => {
   return (
     <>
       {isLoggedOut ? (
-        <nav>
+        <Nav>
           <Link className="link" to="/login" onClick={() => setShowModal(true)}>
             Login
           </Link>
@@ -22,19 +23,19 @@ const NavBar = () => {
           <Link className="link" to="/statistics">
             Statistics
           </Link>
-        </nav>
+        </Nav>
       ) : (
-        <nav>
+        <Nav>
           <Link className="link" onClick={handleLogout}>
             Logout
           </Link>
           <Link className="link" to="/leaderboard">
             Leaderboard
           </Link>
-          <Link className="link" to="/profile">
+          <Link className="link" to={`/profile/${user?.userName}`}>
             Profile
           </Link>
-        </nav>
+        </Nav>
       )}
     </>
   );
