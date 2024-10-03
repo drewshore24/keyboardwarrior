@@ -91,69 +91,6 @@ function Leaderboard() {
               <td className="table-body">98.43%</td>
               <td className="table-body">42:38 hours</td>
             </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
           </tbody>
         </table>
       </div>

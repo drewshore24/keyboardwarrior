@@ -38,7 +38,7 @@ export const readData = async (collection, id) => {
       console.log("No such document");
     }
   } catch (error) {
-    console.error("Error reading documen: t", error.message);
+    console.error("Error updating document: ", error.message);
   }
 };
 
