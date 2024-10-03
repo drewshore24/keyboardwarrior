@@ -1,14 +1,11 @@
 .container {
-  margin: 0;
-  padding: 0;
+  margin-top: 20px;
   box-sizing: border-box;
   background-color: #d2e0fb;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   flex-direction: column;
-  margin: 0 10px;
 }
 .TextBox {
   height: 200px;
@@ -18,7 +15,6 @@
   outline: none;
   font-size: 16px;
   color: black;
-
   text-align: center;
 }
 
@@ -50,8 +46,18 @@
 }
 
 .keys.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
+}
+
+@keyframes activeAnimation {
+  0% {
+    background-color: #303030; 
+    color: #fff; 
+  }
+  100% {
+    background-color: #faf9f6; 
+    color: #000; 
+  }
 }
 
 .Backspace {
@@ -66,8 +72,7 @@
   border: 2px solid #000;
 }
 .Backspace.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Tab {
@@ -83,8 +88,7 @@
 }
 
 .Tab.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Slash {
@@ -99,8 +103,7 @@
   border: 2px solid #000;
 }
 .Slash.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Caps_Lock {
@@ -115,8 +118,7 @@
   border: 2px solid #000;
 }
 .Caps_Lock.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Enter_Key {
@@ -131,8 +133,7 @@
   border: 2px solid #000;
 }
 .Enter_Key.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Ctrl {
@@ -148,8 +149,7 @@
 }
 
 .Ctrl.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 .Alt {
   width: 120px;
@@ -164,8 +164,7 @@
 }
 
 .Alt.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Backslash {
@@ -180,8 +179,7 @@
   border: 2px solid #000;
 }
 .Backslash.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Shift_Left {
@@ -196,8 +194,7 @@
   border: 2px solid #000;
 }
 .Shift_Left.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Shift_Right {
@@ -213,8 +210,7 @@
 }
 
 .Shift_Right.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
 
 .Space_Key {
@@ -230,6 +226,5 @@
   border: 2px solid #000;
 }
 .Space_Key.active {
-  background-color: #303030;
-  color: #fff;
+  animation: activeAnimation 2s forwards; 
 }
