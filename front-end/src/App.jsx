@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Component/Home";
@@ -16,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile/:username" element={<MyProfile />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/statistics" element={<Statistics />} />
       </Routes>
