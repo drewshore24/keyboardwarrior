@@ -11,7 +11,7 @@ function Home() {
 
   return (
     <>
-      <NavBar />
+    <div><NavBar /></div>
       <h1>Le Keyboard Warrior</h1>
       {isLoggedOut ? null : <h2>Hello {user?.userName} </h2>}
       <div className="Game-Keyboard-Container">
