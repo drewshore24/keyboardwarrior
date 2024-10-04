@@ -1,77 +1,51 @@
-import { useState } from "react";
-import { auth, db } from "../firebase/fire";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { useState, useEffect } from "react";
 import { UserContext } from "../context/AuthContext";
 import { useContext } from "react";
 
+import { readData, updateData } from "../utils/crud";
+
 const PlayerStats = () => {
   const { user } = useContext(UserContext);
-  const [stats, setStats] = useState({
-    gamesPlayed: 0,
-    highScore: 0,
-    previousScores: [],
-    accuracy: 9,
-    latestScore: 0,
-    speed: 0,
-  });
+  const [stats, setStats] = useState("");
 
-  const handleSaveStats = async () => {
-    if (user) {
-      const uid = user.uid;
+  useEffect(() => {
+    readData("gameStats", user?.uid).then((res) => {
+      setStats(res);
+    });
+  }, []);
 
-      try {
-        // Reference to the playerStats collection, with the document ID set to uid
-        const statsRef = doc(db, `playerStats/${uid}`);
-
-        // Store the stats with the user UID as the foreign key
-        await setDoc(statsRef, {
-          gamesPlayed: stats.gamesPlayed,
-          highScore: stats.highScore,
-          previousScores: stats.previousScores,
-          accuracy: stats.accuracy,
-          latestScore: stats.latestScore,
-          speed: stats.speed,
-        });
-
-        console.log("Player stats saved successfully!");
-      } catch (error) {
-        console.error("Error saving stats: ", error);
-      }
-    } else {
-      console.log("No user is logged in.");
-    }
+  const userData = {
+    gamesPlayed: stats?.gamesPlayed,
+    highScore: stats?.highScore,
   };
 
+  useEffect(() => {
+    updateData("users", user?.uid, userData);
+  }, [stats]);
+
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Player Stats</h2>
-      <input
-        type="number"
-        placeholder="Games Played"
-        value={stats.gamesPlayed}
-        onChange={(e) => setStats({ ...stats, gamesPlayed: e.target.value })}
-        className="border rounded-lg p-2 mb-4 w-full"
-      />
-      <input
-        type="number"
-        placeholder="High Score"
-        value={stats.highScore}
-        onChange={(e) => setStats({ ...stats, highScore: e.target.value })}
-        className="border rounded-lg p-2 mb-4 w-full"
-      />
-      <input
-        type="number"
-        placeholder="Level"
-        value={stats.level}
-        onChange={(e) => setStats({ ...stats, level: e.target.value })}
-        className="border rounded-lg p-2 mb-4 w-full"
-      />
-      <button
-        className="bg-blue-500 text-white py-2 px-4 rounded-lg"
-        onClick={handleSaveStats}
-      >
-        Save Stats
-      </button>
+    <div className=" overflow-hidden shadow rounded-lg border border-[#C96868]">
+      <div className="px-4 py-5 sm:px-6">
+        <h3 className="text-lg leading-6 font-medium text-gray-900">
+          {user?.userName}'s Stats
+        </h3>
+      </div>
+      <div className="border-t border-[#C96868] px-4 py-5 sm:p-0">
+        <dl className="sm:divide-y sm:divide-[#C96868]">
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">Games played</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {stats?.gamesPlayed}
+            </dd>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">Highest Score</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {stats?.highScore}
+            </dd>
+          </div>
+        </dl>
+      </div>
     </div>
   );
 };

@@ -11,10 +11,10 @@ import {
 import { db } from "../firebase/fire";
 import { v4 as uuidv4 } from "uuid";
 
-const id1 = uuidv4().toUpperCase().slice(0, 13).replace(/-/g, "");
+//const id1 = uuidv4().toUpperCase().slice(0, 13).replace(/-/g, "");
 
-export const createData = async (collectionName, data) => {
-  const id = id1;
+export const createData = async (collectionName, data, id) => {
+  // const id = id1;
 
   try {
     const docRef = doc(db, collectionName, id);
