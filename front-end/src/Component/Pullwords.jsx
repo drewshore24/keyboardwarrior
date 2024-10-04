@@ -12,7 +12,6 @@ const Pullwords = () => {
       setWordsArr(arr);
     });
   }, []);
-  console.log(wordsArr);
   return (
     <div>
       <Userbox />

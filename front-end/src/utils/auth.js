@@ -20,6 +20,8 @@ export const logout = async () => {
   try {
     auth.signOut();
   } catch (error) {
+    console.log(error);
+
     return error;
   }
 };
