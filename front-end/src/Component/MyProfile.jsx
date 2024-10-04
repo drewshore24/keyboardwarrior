@@ -18,13 +18,23 @@ function MyProfile() {
   return (
     <>
       <Nav>
-        <Link className="link" to="/" onClick={handleLogout}>
+        <Link
+          className="bg-gradient-to-r from-[#7EACB5] to-[#C96868] text-white font-bold py-2 px-4 rounded my-4 mx-1"
+          to="/"
+          onClick={handleLogout}
+        >
           Logout
         </Link>
-        <Link className="link" to="/leaderboard">
+        <Link
+          className="bg-gradient-to-r from-[#C96868] to-[#FADFA1] text-white font-bold py-2 px-4 rounded my-4 mx-1"
+          to="/leaderboard"
+        >
           Leaderboard
         </Link>
-        <Link className="link" to="/">
+        <Link
+          className="bg-gradient-to-r from-[#FADFA1] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4 mx-1"
+          to="/"
+        >
           Home
         </Link>
       </Nav>
