@@ -42,20 +42,25 @@ function MyProfile() {
       <div>
         <h1>Welcome {user?.userName}</h1>
         <ProfileImage user={user} />
-        <ProfileCard user={user} />
-        <button
-          className="bg-gradient-to-r from-[#C96868] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4"
-          onClick={() => {
-            setShowUpdateModal(true);
-          }}
-        >
-          Edit Profile
-        </button>
-        <UpdateProfile
-          setShowUpdateModal={setShowUpdateModal}
-          showUpdateModal={showUpdateModal}
-        />
-        <PlayerStats />
+        <div className="flex">
+          <div className="flex flex-col mr-4">
+            <ProfileCard user={user} />
+            <button
+              className="bg-gradient-to-r from-[#C96868] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4"
+              onClick={() => {
+                setShowUpdateModal(true);
+              }}
+            >
+              Edit Profile
+            </button>
+            <UpdateProfile
+              setShowUpdateModal={setShowUpdateModal}
+              showUpdateModal={showUpdateModal}
+            />
+          </div>
+
+          <PlayerStats />
+        </div>
       </div>
     </>
   );
