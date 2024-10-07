@@ -7,6 +7,7 @@ import { readData, updateData } from "../utils/crud";
 const PlayerStats = () => {
   const { user } = useContext(UserContext);
   const [stats, setStats] = useState("");
+  console.log(stats, "playsa");
 
   useEffect(() => {
     readData("gameStats", user?.uid).then((res) => {
@@ -42,6 +43,46 @@ const PlayerStats = () => {
             <dt className="text-sm font-medium text-gray-500">Highest Score</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               {stats?.highScore}
+            </dd>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">
+              Words Per Minute (latest game)
+            </dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {stats?.wpm}
+            </dd>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">
+              Characters Per Minute (latest game)
+            </dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {stats?.cpm}
+            </dd>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">
+              Accuracy (latest game)
+            </dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {stats?.accuracy}%
+            </dd>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">
+              Average Accuracy (last ten games)
+            </dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {stats?.averageAccuracy}%
+            </dd>
+          </div>
+          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">
+              Average Words Per Minute (last ten games)
+            </dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {stats?.averageWpm}
             </dd>
           </div>
         </dl>
