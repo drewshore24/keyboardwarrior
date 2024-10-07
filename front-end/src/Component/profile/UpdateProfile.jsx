@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Modal from "../Modal";
 import { UserContext } from "../../context/AuthContext";
 import { updateData } from "../../utils/crud";
@@ -38,9 +38,15 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   };
 
   function handleClick() {
-    updateData("users", user.uid, userData);
+    updateData("users", user?.uid, userData);
     setShowUpdateModal(false);
   }
+
+  useEffect(() => {
+    if (userData?.userName !== undefined) {
+      handleClick();
+    }
+  }, [user]);
   return (
     <Modal
       isVisible={showUpdateModal}

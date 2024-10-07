@@ -166,7 +166,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
       userData.lastTenAccuracy = lastTen_accuracy;
       userData.averageWpm = avg_wpm;
       userData.averageAccuracy = avg_accuracy;
-      userData.accuracy = accuracy;
+      userData.accuracy = Number(accuracy).toFixed(2);
       userData.wpm = wpm;
       userData.cpm = cpm;
     }
