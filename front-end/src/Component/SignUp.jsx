@@ -3,6 +3,7 @@ import { signUp } from "../utils/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import { UserContext } from "../context/AuthContext";
+import { createData } from "../utils/crud";
 
 const CreateUser = () => {
   const { showModal, setShowModal } = useContext(UserContext);
@@ -18,10 +19,27 @@ const CreateUser = () => {
     email: data.email,
   };
 
+  const stats = {
+    gamesPlayed: 0,
+    highScore: 0,
+    lastTenWpm: [],
+    lastTenAccuracy: [],
+    averageWpm: 0,
+    averageAccuracy: 0,
+    accuracy: 0,
+    wpm: 0,
+    cpm: 0,
+  };
+
   const canSave = [...Object.values(data)].every(Boolean);
   let navigate = useNavigate();
   function handleClick() {
-    signUp(data.email, data.password, userData);
+    signUp(data.email, data.password, userData).then((user) => {
+      createData("gameStats", stats, user.uid).then(() =>
+        console.log("collection created")
+      );
+    });
+    //
     navigate("/");
   }
 
