@@ -5,6 +5,7 @@ import { updateData } from "../../utils/crud";
 import { ToastContainer } from "react-toastify";
 import Countries from "./Countries";
 import ImageUpload from "./ImageUpload";
+import defaultImg from '../../images/Daffy-Duck.jpg'
 
 const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   const { user } = useContext(UserContext);
@@ -36,6 +37,9 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
       [name]: value,
     }));
   };
+
+  const canSave = [...Object.values(userData)].every(Boolean);
+  console.log(canSave)
 
   function handleClick() {
     updateData("users", user?.uid, userData);
@@ -122,6 +126,7 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
           <button
             type="button"
             onClick={handleClick}
+            disabled={!canSave}
             className="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-[#C96868] hover:bg-[#D2E0FB] focus:outline-[#C96868]"
           >
             Update Profile

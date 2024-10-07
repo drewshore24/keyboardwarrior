@@ -109,3 +109,13 @@ button{
   font-weight: 500;
   padding: 6px 16px;
 }
+
+.DropDown{
+  background-color: #625851;
+  color: #FAF9F6;
+  margin-bottom: 5px;
+}
+.selection{
+  background-color: #625851;
+  color: #FAF9F6;
+}
