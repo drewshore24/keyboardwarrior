@@ -1,20 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
-  background-color: #d2e0fb;
+  background-color: #f8f5f2;
 }
+
 h1 {
-  color: #FAF9F6;
+  color: #232323;
   text-align: center;
   font-size: 4rem;
-  text-shadow: 0px 0px 5px black;
+  font-weight: 500;
 }
 
 h2 {
   text-align: center;
   font-size: large;
+  color: red;
 }
 
 body {
@@ -24,18 +22,13 @@ body {
 }
 
 .link {
-  color: #c96868;
+  color: #232323;
   margin: 10px;
   font-size: large;
   display: inline-block;
 }
 
-nav {
-  display: flex;
-  justify-content: right;
-}
-
-.Game-Keyboard-Container{
+.Game-Keyboard-Container {
   display: flex;
   justify-content: center;
   align-items: center;

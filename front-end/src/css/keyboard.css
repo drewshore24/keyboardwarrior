@@ -1,12 +1,3 @@
-.container {
-  margin-top: 20px;
-  box-sizing: border-box;
-  background-color: #d2e0fb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 .TextBox {
   height: 200px;
   width: 20em;
@@ -20,22 +11,34 @@
 
 .Keyboard {
   max-width: 1008px;
-  width: 100%;
+  width: 700px;
   background-color: #e7e7e7;
   overflow: hidden;
   position: relative;
-  overflow: hidden;
   order: 2;
+  border-radius: 25px;
+  padding: 10px;
 }
 
 .row {
   display: flex;
-  background-color: #454545;
+  background-color: #f8f5f2;
 }
 
-.keys {
-  width: 60px;
-  height: 60px;
+.keys,
+.Backspace,
+.Tab,
+.Slash,
+.Caps_Lock,
+.Enter_Key,
+.Ctrl,
+.Alt,
+.Backslash,
+.Shift_Left,
+.Shift_Right,
+.Space_Key {
+  width: 50px;
+  height: 50px;
   background-color: #faf9f6;
   display: flex;
   justify-content: center;
@@ -43,26 +46,28 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
+  border-radius: 12px;
 }
 
 .keys.active {
-  animation: activeAnimation 2s forwards; 
+  animation: activeAnimation 2s forwards;
 }
 
 @keyframes activeAnimation {
   0% {
-    background-color: #303030; 
-    color: #fff; 
+    background-color: #303030;
+    color: #fff;
   }
+
   100% {
-    background-color: #faf9f6; 
-    color: #000; 
+    background-color: #faf9f6;
+    color: #000;
   }
 }
 
 .Backspace {
   width: 185px;
-  height: 60px;
+  height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
@@ -70,14 +75,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-.Backspace.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 15px;
 }
 
 .Tab {
   width: 120px;
-  height: 60px;
+  height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
@@ -85,15 +88,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-
-.Tab.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 15px;
 }
 
 .Slash {
   width: 155px;
-  height: 60px;
+  height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
@@ -101,14 +101,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-.Slash.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 15px;
 }
 
 .Caps_Lock {
   width: 128px;
-  height: 60px;
+  height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
@@ -116,14 +114,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-.Caps_Lock.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 15px;
 }
 
 .Enter_Key {
   width: 120px;
-  height: 60px;
+  height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
@@ -131,14 +127,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-.Enter_Key.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 15px;
 }
 
 .Ctrl {
   width: 120px;
-  height: 60px;
+  height: 50px;
   background-color: #7eacb5;
   display: flex;
   justify-content: center;
@@ -146,14 +140,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
+  border-radius: 12px;
 }
 
-.Ctrl.active {
-  animation: activeAnimation 2s forwards; 
-}
 .Alt {
   width: 120px;
-  height: 60px;
+  height: 50px;
   background-color: #7eacb5;
   display: flex;
   justify-content: center;
@@ -161,15 +153,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-
-.Alt.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 12px;
 }
 
 .Backslash {
   width: 120px;
-  height: 60px;
+  height: 50px;
   background-color: #faf9f6;
   display: flex;
   justify-content: center;
@@ -177,14 +166,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-.Backslash.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 12px;
 }
 
 .Shift_Left {
   width: 124px;
-  height: 60px;
+  height: 50px;
   background-color: #7eacb5;
   display: flex;
   justify-content: center;
@@ -192,14 +179,12 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-.Shift_Left.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 12px;
 }
 
 .Shift_Right {
   width: 187px;
-  height: 60px;
+  height: 50px;
   background-color: #7eacb5;
   display: flex;
   justify-content: center;
@@ -207,16 +192,13 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
-}
-
-.Shift_Right.active {
-  animation: activeAnimation 2s forwards; 
+  border-radius: 12px;
 }
 
 .Space_Key {
   max-width: 600px;
   width: 100%;
-  height: 60px;
+  height: 50px;
   background-color: #c96868;
   display: flex;
   justify-content: center;
@@ -224,7 +206,31 @@
   margin: 4px;
   transition: 0.2s;
   border: 2px solid #000;
+  border-radius: 20px;
 }
+
+.Backspace.active,
+.Tab.active,
+.Slash.active,
+.Caps_Lock.active,
+.Enter_Key.active,
+.Ctrl.active,
+.Alt.active,
+.Backslash.active,
+.Shift_Left.active,
+.Shift_Right.active,
 .Space_Key.active {
-  animation: activeAnimation 2s forwards; 
+  animation: activeAnimation 2s forwards;
+}
+
+@keyframes activeAnimation {
+  0% {
+    background-color: #303030;
+    color: #fff;
+  }
+
+  100% {
+    background-color: #faf9f6;
+    color: #000;
+  }
 }

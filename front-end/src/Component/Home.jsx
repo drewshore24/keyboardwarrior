@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../context/AuthContext";
-import Keyboard from "./Keyboard";
 import NavBar from "./NavBar";
 import WordGame from "./WordGame";
 
@@ -16,7 +15,6 @@ function Home() {
       {isLoggedOut ? null : <h2>Hello {user?.userName} </h2>}
       <div className="Game-Keyboard-Container">
       <WordGame typedLetter={typedLetter} setTypedLetter={setTypedLetter} isSpecialKey={isSpecialKey} setSpecialKey={setSpecialKey}/>
-      <Keyboard typedLetter={typedLetter} isSpecialKey={isSpecialKey}/>
       </div>
     </>
   );
