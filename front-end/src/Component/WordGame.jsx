@@ -14,8 +14,8 @@ const paragraph =
   "As the sun dipped below the horizon, the sky transformed into a canvas of vibrant oranges and deep purples, casting a warm glow over the quiet town. The evening breeze carried the sweet scent of blooming jasmine, mingling with the distant sounds of laughter and music from a nearby festival. Streetlights flickered to life, illuminating the cobblestone streets where families strolled leisurely, savoring the moment. In this tranquil setting, time seemed to slow, allowing the beauty of the world to unfold in every detail.";
 
 const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
-  const { user, stats, setStats } = useContext(UserContext);
-
+  // useStates
+  const { user, stats } = useContext(UserContext);
   const inputRef = useRef(null);
   const [strArray, setStrArr] = useState([]);
   const [timer, setTimer] = useState(10);
@@ -27,6 +27,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [isTime0, setIsTime0] = useState(false);
 
+  // stats calculations
   useEffect(() => {
     if (timer === 0) {
       const charPerMin = Math.ceil(correctChar * 2);
@@ -40,6 +41,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }, [timer]);
 
+  // keyboard and game functionality
   function handleKeyDown(e) {
     const specialKeys = ["Shift", "CapsLock", "Alt", "Control"];
     const lastTypedCharacter = strArray[strArray.length - 1];
@@ -65,6 +67,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }
 
+  // timer logic
   useEffect(() => {
     if (timer > 0 && timerStarted === true) {
       const intervalId = setInterval(() => {
@@ -75,6 +78,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }, [timer, timerStarted]);
 
+  // working out current letter and correct letters
   function getClassName(i) {
     if (strArray.length === i) {
       return "active";
@@ -87,6 +91,8 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
       }
     }
   }
+
+  // deals with user clicking on game
   function handleClick() {
     if (!gameStarted) {
       setGameStarted(true);
@@ -94,6 +100,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     inputRef.current.focus();
   }
 
+  // changes screen depending on state
   function conditionalRender() {
     if (gameStarted && timer > 0) {
       return paragraph.split("").map((char, i) => (
@@ -115,6 +122,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }
 
+  // handles refresh button and returns all state to default
   function refresh() {
     setTypedLetter(null);
     setStrArr([]);
@@ -128,6 +136,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     setIsTime0(false);
   }
 
+  // sets the data for the database (backend)
   const userData = {
     gamesPlayed: 0,
     highScore: 0,
@@ -140,6 +149,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     cpm: 0,
   };
 
+  // calls functions to calculate backend data and sends the data.
   useEffect(() => {
     const id = user?.uid;
     if (isTime0) {
