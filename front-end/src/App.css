@@ -20,7 +20,6 @@ h2 {
 body {
   font-family: "Lato", sans-serif;
   transition: 0.2s;
-  display: flex;
   justify-content: center;
 }
 

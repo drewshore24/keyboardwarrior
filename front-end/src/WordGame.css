@@ -31,7 +31,20 @@
     background-color: #625851;
   }
 
+  .text-field{
+    background-color: #625851;
+  }
 
+ .start-game-text{
+  background-color: #625851;
+  color: #FADFA1;
+ }
+ .stats-return{
+  text-align: center;
+  background-color: #625851;
+  font-size: 30px;
+  color: #FAF9F6;
+ }
   .result {
     width: 70%;
     display: flex;

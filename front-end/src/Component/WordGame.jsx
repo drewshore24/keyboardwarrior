@@ -23,15 +23,18 @@ const WordGame = ({
   //   const [typedLetter, setTypedLetter] = useState(null);
   const { user, stats, setStats } = useContext(UserContext);
 
+
   const inputRef = useRef(null);
   const [strArray, setStrArr] = useState([]);
   const [timer, setTimer] = useState(10);
   const [timerStarted, setTimerStarted] = useState(false);
-  const [correctChar, setCorrectChar] = useState(0);
-  const [cpm, setCpm] = useState(0);
-  const [wpm, setWpm] = useState(0);
-  const [accuracy, setAccuracy] = useState(0);
+  const [correctChar, setCorrectChar] = useState(0)
+  const [cpm, setCpm] = useState(0)
+  const [wpm, setWpm] = useState(0)
+  const [accuracy, setAccuracy] = useState(0)
+  const [gameStarted, setGameStarted] = useState(false);
   const [isTime0, setIsTime0] = useState(false);
+
 
   useEffect(() => {
     if (timer === 0) {
@@ -93,21 +96,47 @@ const WordGame = ({
       }
     }
   }
-
   function handleClick() {
+    if(!gameStarted){
+        setGameStarted(true)
+    }
     inputRef.current.focus();
   }
 
-  function refresh() {
-    setTypedLetter(null);
-    setStrArr([]);
-    setTimer(10);
-    setTimerStarted(false);
-    setCorrectChar(0);
-    setCpm(0);
-    setWpm(0);
+
+  function conditionalRender(){
+    if(gameStarted && timer > 0){
+        return(
+        paragraph.split("").map((char, i) => (
+            <span className={`char ${getClassName(i)}`} key={i}>
+              {char}
+            </span>
+        )
+    ))}
+    if(!gameStarted && timer > 0){
+        return(
+        <span className="start-game-text">Please click here to start the game. Once you start typing, the timer will start...</span>
+        )
+    }
+    if(gameStarted && timer === 0){
+        return(
+        <p className="stats-return">Stats</p>
+        )
+    }
+  }
+
+  function refresh(){
+    setTypedLetter(null)
+    setStrArr([])
+    setTimer(30)
+    setTimerStarted(false)
+    setCorrectChar(0)
+    setCpm(0)
+    setWpm(0)
+    setAccuracy(0)
+    setGameStarted(false)
     setIsTime0(false);
-    setAccuracy(0);
+
   }
 
   const userData = {
@@ -163,13 +192,9 @@ const WordGame = ({
             onKeyDown={handleKeyDown}
             ref={inputRef}
           />
-          {paragraph.split("").map((char, i) => {
-            return (
-              <span className={[`char ${getClassName(i)}`]} key={i}>
-                {char}
-              </span>
-            );
-          })}
+          <div className="text-field">
+            {conditionalRender()}
+          </div>
         </div>
       </div>
       <div className="result">
