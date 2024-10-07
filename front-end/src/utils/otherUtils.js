@@ -25,7 +25,7 @@ export const getAverage = (array) => {
     total += element;
   }
 
-  return total / array.length;
+  return (total / array.length).toFixed(2);
 };
 
 export const highScoreCalc = (num, highS) => {

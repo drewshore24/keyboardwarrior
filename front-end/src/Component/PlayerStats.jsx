@@ -7,21 +7,26 @@ import { readData, updateData } from "../utils/crud";
 const PlayerStats = () => {
   const { user } = useContext(UserContext);
   const [stats, setStats] = useState("");
-  console.log(stats, "playsa");
 
   useEffect(() => {
-    readData("gameStats", user?.uid).then((res) => {
-      setStats(res);
-    });
-  }, []);
+    if (user?.uid !== undefined) {
+      readData("gameStats", user?.uid).then((res) => {
+        setStats(res);
+      });
+    }
+  }, [user]);
 
   const userData = {
     gamesPlayed: stats?.gamesPlayed,
     highScore: stats?.highScore,
+    averageAccuracy: stats?.averageAccuracy,
+    averageWpm: stats.averageWpm,
   };
 
   useEffect(() => {
-    updateData("users", user?.uid, userData);
+    if (userData.highScore !== undefined) {
+      updateData("users", user?.uid, userData);
+    }
   }, [stats]);
 
   return (
