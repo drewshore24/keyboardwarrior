@@ -1,14 +1,26 @@
 import "../../src/css/leaderboard.css";
 import Loading from "./Loading";
 import { useState } from "react";
+import Nav from "./Nav";
+import { Link } from "react-router-dom";
+
 function Leaderboard() {
   const [isLoading, setIsLoading] = useState(false);
 
   if (isLoading === true) {
     return <Loading />;
   }
+
   return (
     <>
+      <Nav>
+        <Link
+          className="bg-gradient-to-r from-[#FADFA1] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4 mx-1"
+          to="/"
+        >
+          Home
+        </Link>
+      </Nav>
       <div className="table-container">
         <h1 className="leaderboard-header">Leaderboard</h1>
         <br />
@@ -21,75 +33,21 @@ function Leaderboard() {
           <thead>
             <tr>
               <th className="title">username</th>
-              <th className="title">WPM</th>
-              <th className="title">score</th>
-              <th className="title">accuracy</th>
-              <th className="title">practice time</th>
+              <th className="title">Location</th>
+              <th className="title">Highest Score</th>
+              <th className="title">Average WPM</th>
+              <th className="title">Average accuracy</th>
+              <th className="title">Games Played</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td className="table-body">John Doe</td>
-              <td className="table-body">126.34</td>
-              <td className="table-body">3000</td>
+              <td className="table-body">UK</td>
+              <td className="table-body">60</td>
+              <td className="table-body">50</td>
               <td className="table-body">98.43%</td>
-              <td className="table-body">47:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
-            </tr>
-            <tr>
-              <td className="table-body">Ken Adams</td>
-              <td className="table-body">122.34</td>
-              <td className="table-body">2910</td>
-              <td className="table-body">98.43%</td>
-              <td className="table-body">42:38 hours</td>
+              <td className="table-body">3</td>
             </tr>
           </tbody>
         </table>
