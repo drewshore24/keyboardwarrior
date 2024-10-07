@@ -1,4 +1,4 @@
-import "../../src/leaderboard.css";
+import "../../src/css/leaderboard.css";
 import Loading from "./Loading";
 import { useState } from "react";
 function Leaderboard() {

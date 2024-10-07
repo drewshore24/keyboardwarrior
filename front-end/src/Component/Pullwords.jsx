@@ -1,6 +1,6 @@
 import { readData } from "../utils/crud";
 import React, { useEffect, useState } from "react";
-import "../Pullwords.css";
+import "../css/Pullwords.css";
 import Userbox from "./Userbox";
 
 const Pullwords = () => {

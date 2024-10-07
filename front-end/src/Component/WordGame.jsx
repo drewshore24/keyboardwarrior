@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useContext } from "react";
-import "../WordGame.css";
+import "../css/WordGame.css";
 
 import { UserContext } from "../context/AuthContext";
 import {
