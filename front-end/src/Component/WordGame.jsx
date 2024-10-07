@@ -126,7 +126,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
   function refresh() {
     setTypedLetter(null);
     setStrArr([]);
-    setTimer(30);
+    setTimer(5);
     setTimerStarted(false);
     setCorrectChar(0);
     setCpm(0);
@@ -152,7 +152,7 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
   // calls functions to calculate backend data and sends the data.
   useEffect(() => {
     const id = user?.uid;
-    if (isTime0) {
+    if (user && isTime0) {
       const lastTen_wpm = updateLastTen(stats?.lastTenWpm, wpm);
       const lastTen_accuracy = updateLastTen(stats?.lastTenAccuracy, accuracy);
       const avg_wpm = getAverage(stats?.lastTenWpm);
