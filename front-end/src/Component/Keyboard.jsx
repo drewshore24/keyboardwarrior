@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import "../keyboard.css";
+import "../css/keyboard.css";
 
-function Keyboard({typedLetter, isSpecialKey}) {
-
-
+function Keyboard({ typedLetter, isSpecialKey }) {
   return (
     <div className="container">
-      <section>
-      </section>
+      <section></section>
       <section className="Keyboard">
         <section className="row">
           <p className={`keys ${typedLetter === "`" ? `active` : ``}`}>`</p>
@@ -48,7 +45,9 @@ function Keyboard({typedLetter, isSpecialKey}) {
         </section>
         <section className="row">
           <p
-            className={`Caps_Lock ${isSpecialKey === "Capslock" ? `active` : ``}`}
+            className={`Caps_Lock ${
+              isSpecialKey === "Capslock" ? `active` : ``
+            }`}
           >
             Caps Lock
           </p>
@@ -63,12 +62,16 @@ function Keyboard({typedLetter, isSpecialKey}) {
           <p className={`keys ${typedLetter === "l" ? `active` : ``}`}>L</p>
           <p className={`keys ${typedLetter === ";" ? `active` : ``}`}>;</p>
           <p className={`keys ${typedLetter === "'" ? `active` : ``}`}>'</p>
-          <p className={`Enter_Key ${isSpecialKey === "Enter" ? `active` : ``}`}>
+          <p
+            className={`Enter_Key ${isSpecialKey === "Enter" ? `active` : ``}`}
+          >
             Enter
           </p>
         </section>
         <section className="row">
-          <p className={`Shift_Left ${isSpecialKey === "Shift" ? `active` : ``}`}>
+          <p
+            className={`Shift_Left ${isSpecialKey === "Shift" ? `active` : ``}`}
+          >
             Shift
           </p>
           <p className={`keys ${typedLetter === "z" ? `active` : ``}`}>Z</p>
@@ -82,7 +85,9 @@ function Keyboard({typedLetter, isSpecialKey}) {
           <p className={`keys ${typedLetter === "/" ? `active` : ``}`}>/</p>
           <p className={`keys ${typedLetter === "?" ? `active` : ``}`}>?</p>
           <p
-            className={`Shift_Right ${isSpecialKey === "Shift" ? `active` : ``}`}
+            className={`Shift_Right ${
+              isSpecialKey === "Shift" ? `active` : ``
+            }`}
           >
             Shift
           </p>
@@ -95,7 +100,9 @@ function Keyboard({typedLetter, isSpecialKey}) {
           <p className={`Space_Key ${isSpecialKey === " " ? `active` : ``}`}>
             ____
           </p>
-          <p className={`Ctrl ${isSpecialKey === "Alt" ? `active` : ``}`}>Alt</p>
+          <p className={`Ctrl ${isSpecialKey === "Alt" ? `active` : ``}`}>
+            Alt
+          </p>
           <p className={`Alt ${isSpecialKey === "Control" ? `active` : ``}`}>
             Ctrl
           </p>

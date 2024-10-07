@@ -1,4 +1,4 @@
-import "../user-box.css";
+import "../css/user-box.css";
 const Userbox = () => {
   return (
     <>

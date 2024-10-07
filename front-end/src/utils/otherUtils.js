@@ -1,18 +1,8 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { updateData } from "./crud";
 
 export const notify = (message, obj) => {
   toast(message, obj);
-};
-
-export const updateGameStats = async (collection, id, data) => {
-  try {
-    await updateData(collection, id, data);
-    console.log("document updated");
-  } catch (error) {
-    console.log("error");
-  }
 };
 
 export const updateLastTen = (arr, val) => {
