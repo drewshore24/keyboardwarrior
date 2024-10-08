@@ -5,7 +5,7 @@ import { updateData } from "../../utils/crud";
 import { ToastContainer } from "react-toastify";
 import Countries from "./Countries";
 import ImageUpload from "./ImageUpload";
-import defaultImg from '../../images/Daffy-Duck.jpg'
+import defaultImg from "../../images/Daffy-Duck.jpg";
 
 const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   const { user } = useContext(UserContext);
@@ -39,7 +39,6 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   };
 
   const canSave = [...Object.values(userData)].every(Boolean);
-  console.log(canSave)
 
   function handleClick() {
     updateData("users", user?.uid, userData);
