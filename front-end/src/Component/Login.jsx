@@ -1,22 +1,28 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useState, useEffect } from "react";
 import { signin } from "../utils/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import { UserContext } from "../context/AuthContext";
+import "../css/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { showModal, setShowModal } = useContext(UserContext);
-
+  const { showModal, setShowModal, isLoggedOut } = useContext(UserContext);
   let navigate = useNavigate();
 
   function handleLogin() {
+    console.log("Attempting to log in with:", email, password);
     signin(email, password);
     navigate("/");
   }
 
-  //
+  useEffect(() => {
+    if (isLoggedOut) {
+      setShowModal(true);
+    }
+  }, [isLoggedOut]);
+
   return (
     <Fragment>
       <Modal
@@ -26,51 +32,43 @@ const Login = () => {
           navigate("/");
         }}
       >
-        <div className="max-w-[350px] w-full mx-auto border border-[#C96868] rounded-2xl p-8">
-          <div className="space-y-6">
-            <div>
-              <label className="text-gray-800 text-sm mb-2 block">
-                Email Address
-              </label>
-              <input
-                name="email"
-                type="text"
-                className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <label className="text-gray-800 text-sm mb-2 block">
-                Password
-              </label>
-              <input
-                name="password"
-                type="password"
-                className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
-                placeholder="Enter password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+        <div className="login-container">
+          <button
+            className="close-button"
+            onClick={() => {
+              setShowModal(false);
+              navigate("/");
+            }}
+          >
+            X
+          </button>
+          <h2 className="login-title">Login</h2>
+          <div className="input-group">
+            <label className="label">Email Address</label>
+            <input
+              className="input"
+              type="text"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-
-          <div className="!mt-12">
-            <button
-              type="button"
-              onClick={handleLogin}
-              className="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-[#C96868] hover:bg-[#D2E0FB] focus:outline-[#C96868]"
-            >
-              Log in
-            </button>
+          <div className="input-group">
+            <label className="label">Password</label>
+            <input
+              className="input"
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <p className="text-gray-800 text-sm mt-6 text-center">
-            Don't have an account?
-            <Link
-              to="/signup"
-              className="text-[#C96868] font-semibold hover:underline ml-1"
-            >
+          <button type="button" onClick={handleLogin} className="login-button">
+            Log in
+          </button>
+          <p className="signup-text">
+            Don't have an account?{" "}
+            <Link to="/signup" className="signup-link">
               Sign up here
             </Link>
           </p>

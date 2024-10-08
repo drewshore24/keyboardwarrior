@@ -8,6 +8,7 @@ import Signup from "./Component/SignUp";
 import Statistics from "./Component/Statistics";
 import Leaderboard from "./Component/Leaderboard";
 
+
 function App() {
   return (
     <>

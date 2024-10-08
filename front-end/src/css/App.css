@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 * {
   background-color: #f8f5f2;
+  font-family: 'Quicksand'
 }
 
 h1 {
   color: #232323;
   text-align: center;
   font-size: 4rem;
-  font-weight: 500;
+  font-weight: 500px;
 }
 
 h2 {
@@ -22,10 +25,19 @@ body {
 }
 
 .link {
-  color: #232323;
+color: #232323;
   margin: 10px;
   font-size: large;
   display: inline-block;
+  background-color: #f45d48;
+  font-weight: bold;
+  text-decoration: none;
+  /* Remove underline */
+  border: 1px solid black;
+  /* Set border to black */
+  border-radius: 12px;
+  /* Rounded edges */
+  padding: 10px;
 }
 
 .Game-Keyboard-Container {
