@@ -15,6 +15,8 @@ function Home() {
       <div>
         <NavBar />
       </div>
+      <div className="image">
+      </div>
       <div className="header">
         <h1>Le Keyboard Warrior</h1>
       </div>

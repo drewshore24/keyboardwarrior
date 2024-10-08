@@ -247,7 +247,7 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
         </select>
         <p className="statistics time-r">Time Remaining: {timer}</p>
         <button className="Refresh" onClick={refresh}>
-          Refresh
+          Play Again!
         </button>
       </div>
     </section>
