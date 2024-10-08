@@ -1,7 +1,6 @@
 .TextBox {
   height: 200px;
   width: 20em;
-  background-color: #d2e0fb;
   border: none;
   outline: none;
   font-size: 16px;
@@ -11,13 +10,12 @@
 
 .Keyboard {
   max-width: 1008px;
-  width: 700px;
-  background-color: #e7e7e7;
+  width: 100%;
   overflow: hidden;
   position: relative;
   order: 2;
-  border-radius: 25px;
-  padding: 10px;
+  border-radius: 20px;
+  border-color: black;
 }
 
 .row {

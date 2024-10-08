@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
   font-family: 'Noto Sans Mono', monospace;
+  width: 100%;
+  font-size: 30px;
 }
 
 .difficulty-selector {
@@ -15,10 +17,12 @@
 }
 
 .word-game-container {
-  background-color: #625851;
-  color: #B0B0B0;
-  border: 1px solid black;
-  width: 70%;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  background-color: #f8f5f2;
+  color: #000000;
+  border: 4px solid #078080;
+  width: 100%;
   height: auto;
   max-height: 300px;
   overflow: hidden;
@@ -35,21 +39,21 @@
 }
 
 .test {
-  background-color: #625851;
+  background-color: #f8f5f2;
 }
 
 .text-field {
-  background-color: #625851;
+  background-color: #f8f5f2;
 }
 
 .start-game-text {
-  background-color: #625851;
-  color: #FADFA1;
+  background-color: #f8f5f2;
+  color: #000000;
 }
 
 .stats-return {
   text-align: center;
-  background-color: #625851;
+  background-color: #f8f5f2;
   font-size: 30px;
   color: #FAF9F6;
 }
@@ -62,7 +66,7 @@
 }
 
 .statistics {
-  background-color: #625851;
+  background-color: #f8f5f2;
   color: #FAF9F6;
   padding: 8px;
   border: 1px solid black;
@@ -85,11 +89,11 @@ span.active {
 .char {
   user-select: none;
   cursor: text;
-  background-color: #625851;
+  background-color: #f8f5f2;
 }
 
 .char.correct {
-  color: #FAF9F6;
+  color: #078080;
 }
 
 .char.incorrect {
@@ -110,7 +114,7 @@ button {
 }
 
 .selection {
-  background-color: #625851;
+  background-color: #f8f5f2;
   color: #FAF9F6;
 }
 
@@ -125,14 +129,14 @@ button {
 .DropDown,
 .Refresh,
 .time-r {
-  background-color: #625851;
-  color: #FAF9F6;
+  background-color: #f8f5f2;
   padding: 10px 20px;
   border: 1px solid black;
   border-radius: 15px;
   margin: 0 5px;
   flex: 1;
   text-align: center;
+  color: black;
 }
 
 .time-r {
