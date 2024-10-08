@@ -4,33 +4,17 @@ import { useContext, useEffect, useState } from "react";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/AuthContext";
-import { query, orderBy, limit, collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase/fire";
 import { logout } from "../utils/auth";
+import { listenToUsersCollection } from "../utils/crud";
 
 function Leaderboard() {
   const { isLoggedOut, user } = useContext(UserContext);
+
   const [leaderboard, setLeaderboard] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchUsers = async () => {
-    const usersData = [];
-    const usersRef = collection(db, "users");
-    const usersQuery = query(usersRef, orderBy("highScore", "desc"), limit(10));
-    try {
-      const querySnapshot = await getDocs(usersQuery);
-
-      querySnapshot.forEach((doc) => {
-        usersData.push(doc.data());
-      });
-      setLeaderboard(usersData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchUsers();
+    listenToUsersCollection("users", setLeaderboard);
   }, []);
 
   const handleLogout = () => {
