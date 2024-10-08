@@ -1,103 +1,106 @@
-.word-game{
+.word-game {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Noto Sans Mono', monospace;
+  width: 100%;
+  font-size: 30px;
 }
 
-.word-game-container{
-    background-color: #625851;
-    color: #B0B0B0;
-    border: 1px solid black;
-    width: 70%;
-    height: auto; /* Change from fixed height to auto */
-    max-height: 300px; /* Optional: Set a max height to limit expansion */
-    overflow: hidden; /* Prevent overflow if content exceeds max height */
-    padding: 4px;
-    display: flex; /* Use flexbox for child alignment */
-    flex-direction: column; /* Arrange child elements vertically */
-    flex-wrap: wrap; /* Allow wrapping of child elements */
+.difficulty-selector {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.input-field{
-    opacity: 0;
-    z-index: -999;
-    position: absolute;
-  }
+.word-game-container {
+  border-radius: 25px;
+  margin-bottom: 20px;
+  background-color: #f8f5f2;
+  color: #000000;
+  border: 4px solid #078080;
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  overflow: hidden;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
-  .test{
-    background-color: #625851;
-  }
+.input-field {
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
+}
 
-  .text-field{
-    background-color: #625851;
-  }
+.test {
+  background-color: #f8f5f2;
+}
 
- .start-game-text{
-  background-color: #625851;
-  color: #FADFA1;
- }
- .stats-return{
+.text-field {
+  background-color: #f8f5f2;
+}
+
+.start-game-text {
+  background-color: #f8f5f2;
+  color: #000000;
+}
+
+.stats-return {
   text-align: center;
-  background-color: #625851;
+  background-color: #f8f5f2;
   font-size: 30px;
   color: #FAF9F6;
- }
-  .result {
-    width: 70%;
-    display: flex;
-    align-items: stretch;
-    margin-bottom: 20px;
-  }
-
-  .statistics{
-    background-color: #625851;
-    color: #FAF9F6;
-    padding-right: 2px;
-    padding-left: 4px;
-    border: 1px solid black;
-    margin: 0;
-  }
-
-.time-r{
-    flex:1.9;
-  }
-.accuracy{
-    flex:1.3;
-}
-.wpm{
-    flex:0.8;
-}
-.cpm{
-    flex:0.8;
 }
 
-span.active{
-    background-color: grey;
+.result {
+  width: 70%;
+  display: flex;
+  align-items: stretch;
+  margin: 20px 0;
 }
 
-.char{
+.statistics {
+  background-color: #f8f5f2;
+  color: #FAF9F6;
+  padding: 8px;
+  border: 1px solid black;
+  margin: 0 10px;
+}
+
+.accuracy {
+  flex: 1.3;
+}
+
+.wpm,
+.cpm {
+  flex: 0.8;
+}
+
+span.active {
+  background-color: grey;
+}
+
+.char {
   user-select: none;
   cursor: text;
-  background-color: #625851;
+  background-color: #f8f5f2;
 }
 
-.char.correct{
-    color: #FAF9F6;
+.char.correct {
+  color: #078080;
 }
 
-.char.incorrect{
-    color: #ff6962
+.char.incorrect {
+  color: #ff6962;
 }
 
-.Refresh{
-  border: 1px solid black;
-}
-
-
-button{
+button {
   background-color: #FAFBFC;
   border: 1px solid black;
   border-radius: 6px;
@@ -110,12 +113,32 @@ button{
   padding: 6px 16px;
 }
 
-.DropDown{
-  background-color: #625851;
+.selection {
+  background-color: #f8f5f2;
   color: #FAF9F6;
-  margin-bottom: 5px;
 }
-.selection{
-  background-color: #625851;
-  color: #FAF9F6;
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.DropDown,
+.Refresh,
+.time-r {
+  background-color: #f8f5f2;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 0 5px;
+  flex: 1;
+  text-align: center;
+  color: black;
+}
+
+.time-r {
+  flex: 2;
 }

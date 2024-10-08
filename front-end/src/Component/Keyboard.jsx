@@ -25,11 +25,11 @@ function Keyboard({ typedLetter, isSpecialKey }) {
               typedLetter === "Backspace" ? `active` : ``
             }`}
           >
-            Backspace
+            ⌫
           </p>
         </section>
         <section className="row">
-          <p className={`Tab ${typedLetter === "Tab" ? `active` : ``}`}>Tab</p>
+          <p className={`Tab ${typedLetter === "Tab" ? `active` : ``}`}>⇥</p>
           <p className={`keys ${typedLetter === "q" ? `active` : ``}`}>Q</p>
           <p className={`keys ${typedLetter === "w" ? `active` : ``}`}>W</p>
           <p className={`keys ${typedLetter === "e" ? `active` : ``}`}>E</p>
@@ -49,7 +49,7 @@ function Keyboard({ typedLetter, isSpecialKey }) {
               isSpecialKey === "Capslock" ? `active` : ``
             }`}
           >
-            Caps Lock
+            ⇪
           </p>
           <p className={`keys ${typedLetter === "a" ? `active` : ``}`}>A</p>
           <p className={`keys ${typedLetter === "s" ? `active` : ``}`}>S</p>
@@ -65,14 +65,14 @@ function Keyboard({ typedLetter, isSpecialKey }) {
           <p
             className={`Enter_Key ${isSpecialKey === "Enter" ? `active` : ``}`}
           >
-            Enter
+            ↵
           </p>
         </section>
         <section className="row">
           <p
             className={`Shift_Left ${isSpecialKey === "Shift" ? `active` : ``}`}
           >
-            Shift
+            ⇧
           </p>
           <p className={`keys ${typedLetter === "z" ? `active` : ``}`}>Z</p>
           <p className={`keys ${typedLetter === "x" ? `active` : ``}`}>X</p>
@@ -89,12 +89,12 @@ function Keyboard({ typedLetter, isSpecialKey }) {
               isSpecialKey === "Shift" ? `active` : ``
             }`}
           >
-            Shift
+            ⇧
           </p>
         </section>
         <section className="row">
           <p className={`Ctrl ${isSpecialKey === "Control" ? `active` : ``}`}>
-            Ctrl
+            ⌃
           </p>
           <p className={`Alt ${isSpecialKey === "Alt" ? `active` : ``}`}>Alt</p>
           <p className={`Space_Key ${isSpecialKey === " " ? `active` : ``}`}>
@@ -104,7 +104,7 @@ function Keyboard({ typedLetter, isSpecialKey }) {
             Alt
           </p>
           <p className={`Alt ${isSpecialKey === "Control" ? `active` : ``}`}>
-            Ctrl
+            ⌃
           </p>
         </section>
       </section>

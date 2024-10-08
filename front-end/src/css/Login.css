@@ -1,0 +1,87 @@
+.login-container {
+    max-width: 650px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid #078080;
+    border-radius: 15px;
+    padding: 30px;
+    /* Card background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Add some shadow for depth */
+}
+
+.login-title {
+    text-align: center;
+    color: #232323;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    color: #222525;
+    font-weight: bold;
+}
+
+.input {
+    text-align: center;
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #078080;
+        border-radius: 10px;
+        color: #232323;
+        transition: border-color 0.3s ease;
+        margin: 0 auto;
+}
+
+.input:focus {
+    border-color: #078080;
+    /* Change border color on focus */
+    outline: none;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #078080;
+    /* Button color */
+    color: #fffffe;
+    /* Button text color */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #D2E0FB;
+    /* Button hover color */
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+    color: #232323;
+}
+
+.signup-link {
+    color: #078080;
+    /* Link color */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.close-button {
+    background-color: #f45d48;
+    font-weight: bold;
+    align-items: right;
+    justify-content: right;
+    align-content: right;
+    justify-items: right;
+}

@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import "../css/WordGame.css";
-
 import { UserContext } from "../context/AuthContext";
 import {
   getAverage,
@@ -10,11 +9,12 @@ import {
 } from "../utils/otherUtils";
 import { db } from "../firebase/fire";
 import { doc, updateDoc } from "firebase/firestore";
+import Keyboard from "./Keyboard"; 
+
 const defaultText =
   "As the sun dipped below the horizon, the sky transformed into a canvas of vibrant oranges and deep purples, casting a warm glow over the quiet town. The evening breeze carried the sweet scent of blooming jasmine, mingling with the distant sounds of laughter and music from a nearby festival. Streetlights flickered to life, illuminating the cobblestone streets where families strolled leisurely, savoring the moment. In this tranquil setting, time seemed to slow, allowing the beauty of the world to unfold in every detail.";
 
-const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
-  // useStates
+const WordGame = ({ typedLetter, setTypedLetter }) => {
   const { user, stats } = useContext(UserContext);
   const inputRef = useRef(null);
   const [strArray, setStrArr] = useState([]);
@@ -26,9 +26,9 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
   const [accuracy, setAccuracy] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [isTime0, setIsTime0] = useState(false);
-  const [paragraph, SetParagraph] = useState(defaultText)
+  const [paragraph, SetParagraph] = useState(defaultText);
+  const [specialKey, setSpecialKey] = useState(null); 
 
-  // stats calculations
   useEffect(() => {
     if (timer === 0) {
       const charPerMin = Math.ceil(correctChar * 2);
@@ -42,24 +42,28 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }, [timer]);
 
-  // keyboard and game functionality
   function handleKeyDown(e) {
     const specialKeys = ["Shift", "CapsLock", "Alt", "Control"];
     const lastTypedCharacter = strArray[strArray.length - 1];
     const currentParagraphLetter = paragraph[strArray.length - 1];
+
     if (specialKeys.includes(e.key)) {
       setSpecialKey(e.key);
       return;
     }
+
     if (timerStarted === false) {
       setTimerStarted(true);
     }
+
     if (typedLetter !== null && lastTypedCharacter === currentParagraphLetter) {
       setCorrectChar((correctChar) => correctChar + 1);
     }
+
     if (typedLetter !== null && lastTypedCharacter !== currentParagraphLetter) {
       setCorrectChar((correctChar) => correctChar - 1);
     }
+
     setTypedLetter(e.key);
     if (e.key === "Backspace") {
       setStrArr((strArray) => strArray.slice(0, -1));
@@ -68,18 +72,15 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }
 
-  // timer logic
   useEffect(() => {
     if (timer > 0 && timerStarted === true) {
       const intervalId = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
-
       return () => clearInterval(intervalId);
     }
   }, [timer, timerStarted]);
 
-  // working out current letter and correct letters
   function getClassName(i) {
     if (strArray.length === i) {
       return "active";
@@ -93,7 +94,6 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }
 
-  // deals with user clicking on game
   function handleClick() {
     if (!gameStarted) {
       setGameStarted(true);
@@ -101,7 +101,6 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     inputRef.current.focus();
   }
 
-  // changes screen depending on state
   function conditionalRender() {
     if (gameStarted && timer > 0) {
       return paragraph.split("").map((char, i) => (
@@ -113,17 +112,22 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     if (!gameStarted && timer > 0) {
       return (
         <span className="start-game-text">
-          Please click here to start the game. Once you start typing, the timer
-          will start...
+          Please click here to start the game. Once you start typing, the timer will start...
         </span>
       );
     }
     if (gameStarted && timer === 0) {
-      return <p className="stats-return">Stats</p>;
+      return (
+        <>
+          <p>Time's up! Here are your stats:</p>
+          <p>WPM: {wpm}</p>
+          <p>Accuracy: {accuracy}%</p>
+          <p>CPM: {cpm}</p>
+        </>
+      );
     }
   }
 
-  // handles refresh button and returns all state to default
   function refresh() {
     setTypedLetter(null);
     setStrArr([]);
@@ -137,7 +141,6 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     setIsTime0(false);
   }
 
-  // sets the data for the database (backend)
   const userData = {
     gamesPlayed: 0,
     highScore: 0,
@@ -150,7 +153,6 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     cpm: 0,
   };
 
-  // calls functions to calculate backend data and sends the data.
   useEffect(() => {
     const id = user?.uid;
     if (user && isTime0) {
@@ -182,52 +184,63 @@ const WordGame = ({ typedLetter, setTypedLetter, setSpecialKey }) => {
     }
   }, [wpm]);
 
-    function ParagraphGen(selection){
-    const difficulty = selection.target.value
-    if(difficulty === "easy"){
-        console.log('im here in easy')
-        SetParagraph("The sun was out and the sky was a bright shade of blue. Birds flew over the trees, their songs filling the air. People walked by the river, some sat on the grass and watched the water flow. The breeze was cool, and the day felt calm. Children played with balls and ran in the park. A dog barked as it chased a stick. Mothers and fathers smiled at their kids, enjoying the simple joys of the day. In the afternoon, the town was busy as people went to the shops. By the end of the day, the sky was painted with orange and pink, and soon, the moon would rise. Everyone returned to their homes, ready to rest for the night. It had been a good day, full of simple joys.")
+  function ParagraphGen(selection) {
+    const difficulty = selection.target.value;
+    if (difficulty === "easy") {
+      console.log("im here in easy");
+      SetParagraph(
+        "The sun was out and the sky was a bright shade of blue. Birds flew over the trees, their songs filling the air. People walked by the river, some sat on the grass and watched the water flow. The breeze was cool, and the day felt calm. Children played with balls and ran in the park. A dog barked as it chased a stick. Mothers and fathers smiled at their kids, enjoying the simple joys of the day. In the afternoon, the town was busy as people went to the shops. By the end of the day, the sky was painted with orange and pink, and soon, the moon would rise. Everyone returned to their homes, ready to rest for the night. It had been a good day, full of simple joys."
+      );
     }
-    if(difficulty === "medium"){
-        console.log('im here in medium')
-        SetParagraph("As the sunlight broke through the early morning sky, the town slowly came to life. Families gathered in the park, while the children laughed and played with their toys. The breeze carried the scent of fresh flowers and the sound of birds chirping in the trees. In the distance, the market began to stir with activity. Vendors arranged their fresh produce, calling out to the passersby to admire their goods. People stopped to chat with friends, sharing stories and making plans for the day. The town square was bustling with a warm, friendly atmosphere, as the sunshine brightened the mood. Some sat on benches, enjoying the calm moments, while others explored the different shops. The day moved at a relaxed pace, but the air was full of energy. By mid-afternoon, the hustle of the market had reached its peak. The warmth of the day was inviting, making it easy for people to stay outdoors. The beauty of the town was apparent in every moment, with a sense of peace that wrapped around everyone.")
+    if (difficulty === "medium") {
+      console.log("im here in medium");
+      SetParagraph(
+        "As the sunlight broke through the early morning sky, the town slowly came to life. Families gathered in the park, while the children laughed and played with their toys. The breeze carried the scent of fresh flowers and the sound of birds chirping in the trees. In the distance, the market began to stir with activity. Vendors arranged their fresh produce, calling out to the passersby to admire their goods. People stopped to chat with friends, sharing stories and making plans for the day. The town square was bustling with a warm, friendly atmosphere, as the sunshine brightened the mood. Some sat on benches, enjoying the calm moments, while others explored the different shops. The day moved at a relaxed pace, but the air was full of energy. By mid-afternoon, the hustle of the market had reached its peak. The warmth of the day was inviting, making it easy for people to stay outdoors. The beauty of the town was apparent in every moment, with a sense of peace that wrapped around everyone."
+      );
     }
-    if(difficulty=== "hard"){
-        console.log('im here in hard')
-        SetParagraph("In the quaint village, the morning began with a sense of urgency, as the townsfolk prepared for the busy day ahead. The horizon, still bathed in soft hues of pink and gold, gave a gentle glow to the narrow streets. As the vibrant sun climbed higher, the marketplace filled with the sounds of merchants calling out to passing customers. Vendors proudly displayed their goods, from exquisite pastries to colorful vegetables, each stall offering a unique aroma that blended into the lively air. A young woman, her mind buzzing with thoughts of the day’s tasks, moved purposefully through the crowds. She was searching for the perfect ingredients to prepare her evening meal, her eyes scanning the various displays with precision. The atmosphere was electric, yet the beauty of the moment was not lost on her. The aroma of freshly baked bread mixed with the fragrant scent of flowers from a nearby stall, creating a rich, sensory experience.")
+    if (difficulty === "hard") {
+      console.log("im here in hard");
+      SetParagraph(
+        "In the quaint village, the morning began with a sense of urgency, as the townsfolk prepared for the busy day ahead. The horizon, still bathed in soft hues of pink and gold, gave a gentle glow to the narrow streets. As the vibrant sun climbed higher, the marketplace filled with the sounds of merchants calling out to passing customers. Vendors proudly displayed their goods, from exquisite pastries to colorful vegetables, each stall offering a unique aroma that blended into the lively air. A young woman, her mind buzzing with thoughts of the day’s tasks, moved purposefully through the crowds. She was searching for the perfect ingredients to prepare her evening meal, her eyes scanning the various displays with precision. The atmosphere was electric, yet the beauty of the moment was not lost on her. The aroma of freshly baked bread mixed with the fragrant scent of flowers from a nearby stall, creating a rich, sensory experience."
+      );
     }
-}
+  }
 
-  return (
-    <section className="word-game">
-      <p>Please select your difficulty</p>
-      <select className="DropDown"onChange={ParagraphGen} >
-       <option className="selection" value="easy"> easy </option>
-       <option className="selection"value="medium"> medium </option>
-       <option className="selection"value="hard"> hard </option>
+return (
+  <section className="word-game">
+    <div className="word-game-container">
+      <div className="test" onClick={handleClick}>
+        <input
+          type="text"
+          className="input-field"
+          onKeyDown={handleKeyDown}
+          ref={inputRef}
+        />
+        <div className="text-field">{conditionalRender()}</div>
+      </div>
+    </div>
+    <Keyboard typedLetter={typedLetter} isSpecialKey={specialKey} />
+
+    <div className="controls-container">
+      <select className="DropDown" onChange={ParagraphGen}>
+        <option className="selection" value="easy">
+          easy
+        </option>
+        <option className="selection" value="medium">
+          medium
+        </option>
+        <option className="selection" value="hard">
+          hard
+        </option>
       </select>
-      <div className="word-game-container">
-        <div className="test" onClick={handleClick}>
-          <input
-            type="text"
-            className="input-field"
-            onKeyDown={handleKeyDown}
-            ref={inputRef}
-          />
-          <div className="text-field">{conditionalRender()}</div>
-        </div>
-      </div>
-      <div className="result">
-        <p className="statistics time-r">Time Remaining: {timer} </p>
-        <p className="statistics accuracy">Accuracy: {accuracy}%</p>
-        <p className="statistics wpm">WPM: {wpm}</p>
-        <p className="statistics cpm">CPM: {cpm}</p>
-      </div>
+      <p className="statistics time-r">Time Remaining: {timer}</p>
       <button className="Refresh" onClick={refresh}>
         Refresh
       </button>
-    </section>
-  );
+    </div>
+  </section>
+);
+
 };
 
 export default WordGame;
