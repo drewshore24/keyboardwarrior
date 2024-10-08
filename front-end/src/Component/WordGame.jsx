@@ -9,7 +9,9 @@ import {
 } from "../utils/otherUtils";
 import { db } from "../firebase/fire";
 import { doc, updateDoc } from "firebase/firestore";
-import Keyboard from "./Keyboard"; 
+import Keyboard from "./Keyboard";
+import click from "../sounds/single-key.wav";
+import errorSound from "../sounds/error-sound.mp3";
 
 const defaultText =
   "As the sun dipped below the horizon, the sky transformed into a canvas of vibrant oranges and deep purples, casting a warm glow over the quiet town. The evening breeze carried the sweet scent of blooming jasmine, mingling with the distant sounds of laughter and music from a nearby festival. Streetlights flickered to life, illuminating the cobblestone streets where families strolled leisurely, savoring the moment. In this tranquil setting, time seemed to slow, allowing the beauty of the world to unfold in every detail.";
@@ -27,7 +29,7 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [isTime0, setIsTime0] = useState(false);
   const [paragraph, SetParagraph] = useState(defaultText);
-  const [specialKey, setSpecialKey] = useState(null); 
+  const [specialKey, setSpecialKey] = useState(null);
 
   useEffect(() => {
     if (timer === 0) {
@@ -46,6 +48,9 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
     const specialKeys = ["Shift", "CapsLock", "Alt", "Control"];
     const lastTypedCharacter = strArray[strArray.length - 1];
     const currentParagraphLetter = paragraph[strArray.length - 1];
+    const typedLetter = paragraph[strArray.length];
+    const keySound = new Audio(click);
+    const wrongKey = new Audio(errorSound);
 
     if (specialKeys.includes(e.key)) {
       setSpecialKey(e.key);
@@ -62,6 +67,12 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
 
     if (typedLetter !== null && lastTypedCharacter !== currentParagraphLetter) {
       setCorrectChar((correctChar) => correctChar - 1);
+    }
+
+    if (typedLetter === e.key) {
+      keySound.play();
+    } else {
+      wrongKey.play();
     }
 
     setTypedLetter(e.key);
@@ -112,7 +123,8 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
     if (!gameStarted && timer > 0) {
       return (
         <span className="start-game-text">
-          Please click here to start the game. Once you start typing, the timer will start...
+          Please click here to start the game. Once you start typing, the timer
+          will start...
         </span>
       );
     }
@@ -206,41 +218,40 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
     }
   }
 
-return (
-  <section className="word-game">
-    <div className="word-game-container">
-      <div className="test" onClick={handleClick}>
-        <input
-          type="text"
-          className="input-field"
-          onKeyDown={handleKeyDown}
-          ref={inputRef}
-        />
-        <div className="text-field">{conditionalRender()}</div>
+  return (
+    <section className="word-game">
+      <div className="word-game-container">
+        <div className="test" onClick={handleClick}>
+          <input
+            type="text"
+            className="input-field"
+            onKeyDown={handleKeyDown}
+            ref={inputRef}
+          />
+          <div className="text-field">{conditionalRender()}</div>
+        </div>
       </div>
-    </div>
-    <Keyboard typedLetter={typedLetter} isSpecialKey={specialKey} />
+      <Keyboard typedLetter={typedLetter} isSpecialKey={specialKey} />
 
-    <div className="controls-container">
-      <select className="DropDown" onChange={ParagraphGen}>
-        <option className="selection" value="easy">
-          easy
-        </option>
-        <option className="selection" value="medium">
-          medium
-        </option>
-        <option className="selection" value="hard">
-          hard
-        </option>
-      </select>
-      <p className="statistics time-r">Time Remaining: {timer}</p>
-      <button className="Refresh" onClick={refresh}>
-        Refresh
-      </button>
-    </div>
-  </section>
-);
-
+      <div className="controls-container">
+        <select className="DropDown" onChange={ParagraphGen}>
+          <option className="selection" value="easy">
+            easy
+          </option>
+          <option className="selection" value="medium">
+            medium
+          </option>
+          <option className="selection" value="hard">
+            hard
+          </option>
+        </select>
+        <p className="statistics time-r">Time Remaining: {timer}</p>
+        <button className="Refresh" onClick={refresh}>
+          Refresh
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default WordGame;

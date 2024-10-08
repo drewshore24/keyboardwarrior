@@ -7,6 +7,9 @@ import {
   onSnapshot,
   setDoc,
   updateDoc,
+  query,
+  orderBy,
+  limit,
 } from "firebase/firestore";
 import { db } from "../firebase/fire";
 import { v4 as uuidv4 } from "uuid";
@@ -82,8 +85,23 @@ export const listenToCollection = (collectionName, callback) => {
   const collectionRef = collection(db, collectionName);
 
   return onSnapshot(collectionRef, (querySnapshot) => {
-    console.log(querySnapshot, "snapshot");
+    const newDataArr = [];
+    querySnapshot.forEach((doc) => {
+      newDataArr.push(doc.data());
+    });
+    callback(newDataArr);
+  });
+};
 
+export const listenToUsersCollection = (collectionName, callback) => {
+  const collectionRef = collection(db, collectionName);
+  const collectionQuery = query(
+    collectionRef,
+    orderBy("highScore", "desc"),
+    limit(10)
+  );
+
+  return onSnapshot(collectionQuery, (querySnapshot) => {
     const newDataArr = [];
     querySnapshot.forEach((doc) => {
       newDataArr.push(doc.data());
