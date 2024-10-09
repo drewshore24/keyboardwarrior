@@ -9,7 +9,8 @@
 header {
     background-color: #078080;
     /* Set the background color of the header */
-    color: black;
+    color: white;
+    /* Changed text color for better contrast */
     padding: 1rem;
     /* Optional: Add padding for better spacing */
     border-radius: 0.5rem;
@@ -17,14 +18,15 @@ header {
 }
 
 .username {
-    color: black;
+    color: white;
+    /* Updated to ensure consistency */
 }
 
 .welcome-message {
     font-size: 2.5rem;
     font-weight: bold;
     color: white;
-    /* Change text color to white for contrast */
+    /* Changed text color to white for contrast */
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -37,17 +39,22 @@ header {
 
 .profile-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    /* Align items to the start for better visual hierarchy */
     gap: 1.5rem;
-    flex-direction: row;
+    /* Space between profile and stats */
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+    justify-content: center;
+    /* Center align the contents */
 }
 
+/* Additional styles for profile card and stats card */
 .profile-card-container {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* Allow the profile card to grow */
+    min-width: 250px;
+    /* Minimum width for better responsiveness */
 }
 
 .edit-profile-button {
@@ -67,11 +74,12 @@ header {
 }
 
 .player-stats-container {
-    flex-grow: 1;
-    margin-left: 2rem;
+    flex: 1;
+    /* Allow the stats container to grow */
+    min-width: 250px;
+    /* Minimum width for better responsiveness */
 }
 
-/* Nav Links */
 .logout-button,
 .leaderboard-button,
 .home-button {

@@ -1,8 +1,12 @@
 /* PlayerStats.css */
 .player-stats-card {
-    border-radius: 0.5rem;
+    width: 300px;
     border: 2px solid #078080;
+    border-radius: 0.5rem;
+    /* Consistent border-radius */
     overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Add transition for hover effects */
 }
 
 .player-stats-card:hover {
@@ -10,17 +14,18 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.header {
-    background-color: #078080;
-    padding: 1rem;
-    text-align: center;
-}
-
 .stats-header {
-    color: rgb(0, 0, 0);
+    background-color: #078080;
+    /* Match header background */
+    color: white;
+    /* Ensure text color is consistent */
     font-size: 1.8rem;
     font-weight: bold;
     margin: 0;
+    padding: 1rem;
+    /* Add padding for better spacing */
+    text-align: center;
+    /* Center text */
 }
 
 .content {
@@ -28,24 +33,40 @@
 }
 
 .stats-details {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    /* Changed to flex for consistency */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center align the items */
     gap: 1rem;
+    /* Space between stats */
 }
 
 .stat {
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Ensure stat takes full width */
 }
 
 .stat dt {
+    background-color: #078080;
+    /* Match dt background */
+    border-radius: 10px;
+    /* Consistent rounding */
+    padding: 10px;
     font-weight: bold;
-    color: #555;
+    color: #ffffff;
 }
 
 .stat dd {
+
     margin: 0;
-    color: #333;
-    background-color: #f7f7f7;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
+    color: #000000;
+    padding: 5px;
+    font-weight: 500;
 }

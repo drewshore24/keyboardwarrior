@@ -2,6 +2,17 @@
     border-radius: 0.5rem;
     border: 2px solid #078080;
     overflow: hidden;
+    width:300px
+}
+
+.profile-card-header {
+    background-color: #078080;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
 }
 
 .profile-card:hover {
@@ -14,32 +25,42 @@
     font-size: 1.8rem;
     font-weight: bold;
     margin: 0;
-    background-color:#078080;
+    background-color: #078080;
 }
 
 .content {
     padding: 1.5rem;
+
 }
 
 .profile-details {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .detail {
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .detail dt {
+    background-color: #078080;
+    border-radius: 10px;
+    padding: 10px;
     font-weight: bold;
-    color: #555;
+    color: #ffffff;
 }
 
 .detail dd {
     margin: 0;
-    color: #333;
-    background-color: #f7f7f7;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
+    color: #000000;
+    padding: 5px;
+    font-weight: 500;
 }
