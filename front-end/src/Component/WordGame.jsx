@@ -18,7 +18,7 @@ import { readData } from "../utils/crud";
 const defaultText =
   "As the sun dipped below the horizon, the sky transformed into a canvas of vibrant oranges and deep purples, casting a warm glow over the quiet town. The evening breeze carried the sweet scent of blooming jasmine, mingling with the distant sounds of laughter and music from a nearby festival. Streetlights flickered to life, illuminating the cobblestone streets where families strolled leisurely, savoring the moment. In this tranquil setting, time seemed to slow, allowing the beauty of the world to unfold in every detail.";
 
-const WordGame = ({ typedLetter, setTypedLetter }) => {
+const WordGame = ({ typedLetter, setTypedLetter, soundOn }) => {
   const { user, stats } = useContext(UserContext);
   const inputRef = useRef(null);
   const [strArray, setStrArr] = useState([]);
@@ -71,12 +71,13 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
     if (typedLetter !== null && lastTypedCharacter !== currentParagraphLetter) {
       setCorrectChar((correctChar) => correctChar - 1);
     }
-
+    if(soundOn){
     if (typedLetter === e.key) {
       keySound.play();
     } else {
       wrongKey.play();
     }
+  }
 
     setTypedLetter(e.key);
     if (e.key === "Backspace") {

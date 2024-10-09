@@ -1,19 +1,27 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../context/AuthContext";
+import "../css/Home.css";
 import NavBar from "./NavBar";
 import WordGame from "./WordGame";
+import ToggleSound from "./ToggleSound";
 
 function Home() {
   const { isLoggedOut, user } = useContext(UserContext);
   const [typedLetter, setTypedLetter] = useState(null);
   const [isSpecialKey, setSpecialKey] = useState(null);
+  const [soundOn, setSoundOn] = useState(false)
 
   return (
-    <>
-      <div>
+    <div className="Home-Page">
+      <div className="top-bar">
         <NavBar />
+        <div className="sound-button">
+        <ToggleSound
+        soundOn={soundOn}
+        setSoundOn={setSoundOn}
+        />
+        </div>
       </div>
-
       <div className="header">
         <h1>Le Keyboard Warrior</h1>
       </div>
@@ -41,9 +49,10 @@ function Home() {
           setTypedLetter={setTypedLetter}
           isSpecialKey={isSpecialKey}
           setSpecialKey={setSpecialKey}
+          soundOn={soundOn}
         />
       </div>
-    </>
+    </div>
   );
 }
 
