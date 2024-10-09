@@ -1,10 +1,9 @@
-import React from "react";
 import "../../css/ProfileCard.css";
 
 const ProfileCard = ({ user }) => {
   return (
     <div className="profile-card">
-      <div className="profile-card-header">
+      <div className="header">
         <h3 className="username">{user?.userName}'s Profile</h3>
       </div>
 

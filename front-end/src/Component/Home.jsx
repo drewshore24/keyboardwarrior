@@ -2,8 +2,6 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/AuthContext";
 import NavBar from "./NavBar";
 import WordGame from "./WordGame";
-import Login from "./Login";
-import Signup from "./SignUp";
 
 function Home() {
   const { isLoggedOut, user } = useContext(UserContext);
@@ -22,7 +20,7 @@ function Home() {
 
       <div className="welcome-message">
         {isLoggedOut ? (
-          <Login />
+          null
         ) : (
           <p
             style={{

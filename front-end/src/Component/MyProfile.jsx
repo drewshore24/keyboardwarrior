@@ -35,9 +35,9 @@ function MyProfile() {
       
       <div className="profile-container">
         <h1 className="welcome-message">Welcome {user?.userName}</h1>
-        {/* <div className="profile-image-container">
+        <div className="profile-image-container">
           <ProfileImage user={user} />
-        </div> */}
+        </div>
 
         <div className="profile-content">
           <div className="profile-card-container">

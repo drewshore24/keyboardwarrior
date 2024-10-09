@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "../css/keyboard.css";
 
 function Keyboard({ typedLetter, isSpecialKey }) {
