@@ -1,85 +1,55 @@
-/* UpdateProfile.css */
 .update-profile-container {
     max-width: 350px;
-    /* Set maximum width */
     width: 100%;
     margin: auto;
     border: 1px solid #C96868;
-    /* Border color */
     border-radius: 15px;
-    /* Rounded corners */
     padding: 30px;
-    /* Padding inside the container */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    /* Shadow for depth */
 }
 
 .input-group {
     margin-bottom: 20px;
-    /* Space between input groups */
 }
 
 .label {
     display: block;
     margin-bottom: 5px;
-    /* Space below label */
     color: #222525;
-    /* Label color */
     font-weight: bold;
-    /* Bold text */
 }
 
 .input {
     text-align: left;
-    /* Align text to the left */
     width: calc(100% - 20px);
-    /* Full width minus padding */
     padding: 10px;
-    /* Inner padding */
     border: 1px solid #078080;
-    /* Border color */
     border-radius: 10px;
-    /* Rounded corners */
     color: #232323;
-    /* Text color */
     transition: border-color 0.3s ease;
-    /* Transition for border color */
 }
 
 .input:focus {
     border-color: #078080;
-    /* Change border color on focus */
     outline: none;
-    /* Remove default outline */
 }
 
 .button-container {
     margin-top: 20px;
-    /* Space above button */
 }
 
 .update-button {
     width: 100%;
-    /* Full width button */
     padding: 12px;
-    /* Button padding */
     background-color: #C96868;
-    /* Button color */
     color: #fffffe;
-    /* Button text color */
     border: none;
-    /* No border */
     border-radius: 10px;
-    /* Rounded corners */
     cursor: pointer;
-    /* Pointer on hover */
     font-size: 1rem;
-    /* Font size */
     transition: background-color 0.3s ease, transform 0.3s ease;
-    /* Transitions for hover effects */
 }
 
 .update-button:hover {
     background-color: #D2E0FB;
-    /* Button hover color */
 }
