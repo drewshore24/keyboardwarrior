@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import { UserContext } from "../context/AuthContext";
 import { createData } from "../utils/crud";
+import '../css/SignUp.css'
+import NavBar from './NavBar';
 
 const CreateUser = () => {
   const { showModal, setShowModal } = useContext(UserContext);
@@ -33,13 +35,13 @@ const CreateUser = () => {
 
   const canSave = [...Object.values(data)].every(Boolean);
   let navigate = useNavigate();
+
   function handleClick() {
     signUp(data.email, data.password, userData).then((user) => {
       createData("gameStats", stats, user.uid).then(() =>
         console.log("collection created")
       );
     });
-    //
     navigate("/");
   }
 
@@ -52,8 +54,11 @@ const CreateUser = () => {
       [name]: value,
     }));
   };
+
   return (
     <Fragment>
+      <NavBar />
+
       <Modal
         isVisible={showModal}
         onClose={() => {
@@ -61,55 +66,48 @@ const CreateUser = () => {
           navigate("/");
         }}
       >
-        <div className="max-w-[350px] w-full mx-auto border border-[#C96868] rounded-2xl p-8">
+        <div className="login-container">
           <div className="space-y-6">
-            <div>
-              <label className="text-gray-800 text-sm mb-2 block">
-                Username
-              </label>
+            <div className="input-group">
+              <h2>Sign up</h2>
+              <label className="label">Username</label>
               <input
                 name="userName"
                 type="text"
-                className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="input"
                 placeholder="Enter username"
                 value={data.userName}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label className="text-gray-800 text-sm mb-2 block">
-                Email Address
-              </label>
+            <div className="input-group">
+              <label className="label">Email Address</label>
               <input
                 name="email"
                 type="text"
-                className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="input"
                 placeholder="Enter email"
                 value={data.email}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label className="text-gray-800 text-sm mb-2 block">
-                Password
-              </label>
+            <div className="input-group">
+              <label className="label">Password</label>
               <input
                 name="password"
                 type="password"
-                className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="input"
                 placeholder="Enter password"
                 value={data.password}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label className="text-gray-800 text-sm mb-2 block">
-                Confirm Password
-              </label>
+            <div className="input-group">
+              <label className="label">Confirm Password</label>
               <input
                 name="confirmPassword"
                 type="password"
-                className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="input"
                 placeholder="Enter confirm password"
                 value={data.confirmPassword}
                 onChange={handleChange}
@@ -117,22 +115,19 @@ const CreateUser = () => {
             </div>
           </div>
 
-          <div className="!mt-12">
+          <div className="login-button-container">
             <button
               type="button"
               disabled={!canSave}
               onClick={handleClick}
-              className="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-[#C96868] hover:bg-[#D2E0FB] focus:outline-[#C96868]"
+              className="login-button"
             >
               Create account
             </button>
           </div>
-          <p className="text-gray-800 text-sm mt-6 text-center">
+          <p className="signup-text">
             Already have an account?{" "}
-            <Link
-              to="/login"
-              className="text-[#C96868] font-semibold hover:underline ml-1"
-            >
+            <Link to="/login" className="signup-link">
               Login here
             </Link>
           </p>

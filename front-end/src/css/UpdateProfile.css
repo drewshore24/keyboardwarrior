@@ -1,0 +1,55 @@
+.update-profile-container {
+    max-width: 350px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid #C96868;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    color: #222525;
+    font-weight: bold;
+}
+
+.input {
+    text-align: left;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #078080;
+    border-radius: 10px;
+    color: #232323;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: #078080;
+    outline: none;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.update-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #C96868;
+    color: #fffffe;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #D2E0FB;
+}

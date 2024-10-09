@@ -14,14 +14,14 @@ const NavBar = () => {
     <>
       {isLoggedOut ? (
         <Nav>
+          <Link className="link" to="/">
+            Home
+          </Link>
           <Link className="link" to="/login" onClick={() => setShowModal(true)}>
             Login
           </Link>
           <Link className="link" to="/leaderboard">
             Leaderboard
-          </Link>
-          <Link className="link" to="/statistics">
-            Statistics
           </Link>
         </Nav>
       ) : (

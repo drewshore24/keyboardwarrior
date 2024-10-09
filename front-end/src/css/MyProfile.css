@@ -1,34 +1,32 @@
-/* MyProfile.css */
 .profile-container {
-    max-width: 800px;
     margin: 2rem auto;
     padding: 1.5rem;
     border-radius: 0.5rem;
+    width: 100%;
 }
 
 header {
     background-color: #078080;
-    /* Set the background color of the header */
     color: white;
-    /* Changed text color for better contrast */
     padding: 1rem;
-    /* Optional: Add padding for better spacing */
     border-radius: 0.5rem;
-    /* Optional: Ensure the corners are rounded */
 }
 
 .username {
     color: white;
-    /* Updated to ensure consistency */
 }
 
 .welcome-message {
     font-size: 2.5rem;
     font-weight: bold;
+<<<<<<< HEAD
     color: white;
-    /* Changed text color to white for contrast */
+=======
+    color: black;
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
     text-align: center;
     margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .profile-image-container {
@@ -39,22 +37,38 @@ header {
 
 .profile-content {
     display: flex;
+<<<<<<< HEAD
+    flex-direction: column;
+    align-items: center;
+=======
     align-items: flex-start;
-    /* Align items to the start for better visual hierarchy */
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
     gap: 1.5rem;
-    /* Space between profile and stats */
     flex-wrap: wrap;
-    /* Allow items to wrap on smaller screens */
     justify-content: center;
-    /* Center align the contents */
 }
 
-/* Additional styles for profile card and stats card */
 .profile-card-container {
+<<<<<<< HEAD
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.profile-card {
+    width: 75vmax;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-stats-card {
+    width: 75vmax;
+
+=======
     flex: 1;
-    /* Allow the profile card to grow */
     min-width: 250px;
-    /* Minimum width for better responsiveness */
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
 }
 
 .edit-profile-button {
@@ -67,6 +81,8 @@ header {
     transition: box-shadow 0.3s;
     margin-top: 1rem;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 
 .edit-profile-button:hover {
@@ -74,10 +90,11 @@ header {
 }
 
 .player-stats-container {
+<<<<<<< HEAD
+=======
     flex: 1;
-    /* Allow the stats container to grow */
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
     min-width: 250px;
-    /* Minimum width for better responsiveness */
 }
 
 .logout-button,

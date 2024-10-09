@@ -59,6 +59,8 @@ function MyProfile() {
           <div className="player-stats-container">
             <PlayerStats />
           </div>
+
+
         </div>
       </div>
     </>
