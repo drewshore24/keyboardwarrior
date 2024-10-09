@@ -5,6 +5,7 @@ import {
   getAverage,
   highScoreCalc,
   noOfGames,
+  shuffle,
   updateLastTen,
 } from "../utils/otherUtils";
 import { db } from "../firebase/fire";
@@ -12,6 +13,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import Keyboard from "./Keyboard";
 import click from "../sounds/single-key.wav";
 import errorSound from "../sounds/error-sound.mp3";
+import { readData } from "../utils/crud";
 
 const defaultText =
   "As the sun dipped below the horizon, the sky transformed into a canvas of vibrant oranges and deep purples, casting a warm glow over the quiet town. The evening breeze carried the sweet scent of blooming jasmine, mingling with the distant sounds of laughter and music from a nearby festival. Streetlights flickered to life, illuminating the cobblestone streets where families strolled leisurely, savoring the moment. In this tranquil setting, time seemed to slow, allowing the beauty of the world to unfold in every detail.";
@@ -29,6 +31,7 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [isTime0, setIsTime0] = useState(false);
   const [paragraph, SetParagraph] = useState(defaultText);
+  const [text, setText] = useState(defaultText);
   const [specialKey, setSpecialKey] = useState(null);
 
   useEffect(() => {
@@ -198,25 +201,38 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
     }
   }, [wpm]);
 
+  useEffect(() => {
+    const easy = [];
+    const medium = [];
+    const hard = [];
+    readData("Words", "UbEpCK8nX6NnQKg0ubYP").then((data) => {
+      for (let i = 1; i < 4; i++) {
+        easy.push(data[`easy${i}`]);
+        medium.push(data[`medium${i}`]);
+        hard.push(data[`hard${i}`]);
+      }
+      setText({
+        easy,
+        medium,
+        hard,
+      });
+    });
+  }, []);
+
   function ParagraphGen(selection) {
+    const easy = shuffle(text["easy"]);
+    const medium = shuffle(text["medium"]);
+    const hard = shuffle(text["hard"]);
     const difficulty = selection.target.value;
     if (difficulty === "easy") {
-      console.log("im here in easy");
-      SetParagraph(
-        "The sun was out and the sky was a bright shade of blue. Birds flew over the trees, their songs filling the air. People walked by the river, some sat on the grass and watched the water flow. The breeze was cool, and the day felt calm. Children played with balls and ran in the park. A dog barked as it chased a stick. Mothers and fathers smiled at their kids, enjoying the simple joys of the day. In the afternoon, the town was busy as people went to the shops. By the end of the day, the sky was painted with orange and pink, and soon, the moon would rise. Everyone returned to their homes, ready to rest for the night. It had been a good day, full of simple joys."
-      );
+      console.log();
+      SetParagraph(easy[0]);
     }
     if (difficulty === "medium") {
-      console.log("im here in medium");
-      SetParagraph(
-        "As the sunlight broke through the early morning sky, the town slowly came to life. Families gathered in the park, while the children laughed and played with their toys. The breeze carried the scent of fresh flowers and the sound of birds chirping in the trees. In the distance, the market began to stir with activity. Vendors arranged their fresh produce, calling out to the passersby to admire their goods. People stopped to chat with friends, sharing stories and making plans for the day. The town square was bustling with a warm, friendly atmosphere, as the sunshine brightened the mood. Some sat on benches, enjoying the calm moments, while others explored the different shops. The day moved at a relaxed pace, but the air was full of energy. By mid-afternoon, the hustle of the market had reached its peak. The warmth of the day was inviting, making it easy for people to stay outdoors. The beauty of the town was apparent in every moment, with a sense of peace that wrapped around everyone."
-      );
+      SetParagraph(medium[0]);
     }
     if (difficulty === "hard") {
-      console.log("im here in hard");
-      SetParagraph(
-        "In the quaint village, the morning began with a sense of urgency, as the townsfolk prepared for the busy day ahead. The horizon, still bathed in soft hues of pink and gold, gave a gentle glow to the narrow streets. As the vibrant sun climbed higher, the marketplace filled with the sounds of merchants calling out to passing customers. Vendors proudly displayed their goods, from exquisite pastries to colorful vegetables, each stall offering a unique aroma that blended into the lively air. A young woman, her mind buzzing with thoughts of the day’s tasks, moved purposefully through the crowds. She was searching for the perfect ingredients to prepare her evening meal, her eyes scanning the various displays with precision. The atmosphere was electric, yet the beauty of the moment was not lost on her. The aroma of freshly baked bread mixed with the fragrant scent of flowers from a nearby stall, creating a rich, sensory experience."
-      );
+      SetParagraph(hard[0]);
     }
   }
 

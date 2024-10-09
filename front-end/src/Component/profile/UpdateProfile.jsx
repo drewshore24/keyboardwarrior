@@ -7,6 +7,7 @@ import Countries from "./Countries";
 import ImageUpload from "./ImageUpload";
 import defaultImg from '../../images/Daffy-Duck.jpg'
  
+
 const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   const { user } = useContext(UserContext);
   const [selectedCountry, setSelectedCountry] = useState(user?.location);
@@ -39,7 +40,6 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   };
 
   const canSave = [...Object.values(userData)].every(Boolean);
-  console.log(canSave)
 
   function handleClick() {
     updateData("users", user?.uid, userData);
