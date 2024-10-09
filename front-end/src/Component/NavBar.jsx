@@ -20,9 +20,6 @@ const NavBar = () => {
           <Link className="link" to="/leaderboard">
             Leaderboard
           </Link>
-          <Link className="link" to="/statistics">
-            Statistics
-          </Link>
         </Nav>
       ) : (
         <Nav>
