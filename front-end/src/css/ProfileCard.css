@@ -1,0 +1,45 @@
+.profile-card {
+    border-radius: 0.5rem;
+    border: 2px solid #078080;
+    overflow: hidden;
+}
+
+.profile-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.username {
+    color: rgb(0, 0, 0);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    background-color:#078080;
+}
+
+.content {
+    padding: 1.5rem;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+}
+
+.detail {
+    margin-bottom: 1rem;
+}
+
+.detail dt {
+    font-weight: bold;
+    color: #555;
+}
+
+.detail dd {
+    margin: 0;
+    color: #333;
+    background-color: #f7f7f7;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}

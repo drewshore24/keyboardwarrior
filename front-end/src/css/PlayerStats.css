@@ -1,0 +1,51 @@
+/* PlayerStats.css */
+.player-stats-card {
+    border-radius: 0.5rem;
+    border: 2px solid #078080;
+    overflow: hidden;
+}
+
+.player-stats-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    background-color: #078080;
+    padding: 1rem;
+    text-align: center;
+}
+
+.stats-header {
+    color: rgb(0, 0, 0);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.content {
+    padding: 1.5rem;
+}
+
+.stats-details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+}
+
+.stat {
+    margin-bottom: 1rem;
+}
+
+.stat dt {
+    font-weight: bold;
+    color: #555;
+}
+
+.stat dd {
+    margin: 0;
+    color: #333;
+    background-color: #f7f7f7;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
