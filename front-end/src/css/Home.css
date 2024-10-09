@@ -1,0 +1,11 @@
+
+.top-bar{
+    margin: -40px;
+    display: flex;
+}
+
+.sound-button{
+    margin-left: auto;
+    margin-top: 1px;
+}
+
