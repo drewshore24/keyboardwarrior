@@ -19,7 +19,11 @@ header {
 .welcome-message {
     font-size: 2.5rem;
     font-weight: bold;
+<<<<<<< HEAD
     color: white;
+=======
+    color: black;
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
     text-align: center;
     margin-bottom: 1.5rem;
     width: 100%;
@@ -33,14 +37,19 @@ header {
 
 .profile-content {
     display: flex;
+<<<<<<< HEAD
     flex-direction: column;
     align-items: center;
+=======
+    align-items: flex-start;
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
     gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .profile-card-container {
+<<<<<<< HEAD
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -56,6 +65,10 @@ header {
 .player-stats-card {
     width: 75vmax;
 
+=======
+    flex: 1;
+    min-width: 250px;
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
 }
 
 .edit-profile-button {
@@ -77,6 +90,10 @@ header {
 }
 
 .player-stats-container {
+<<<<<<< HEAD
+=======
+    flex: 1;
+>>>>>>> 81ab91939e1773b1c7a6d8f3dbce23582d350648
     min-width: 250px;
 }
 

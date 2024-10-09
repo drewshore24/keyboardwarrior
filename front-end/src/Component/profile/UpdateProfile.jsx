@@ -5,8 +5,8 @@ import { updateData } from "../../utils/crud";
 import { ToastContainer } from "react-toastify";
 import Countries from "./Countries";
 import ImageUpload from "./ImageUpload";
-import defaultImg from '../../images/Daffy-Duck.jpg'
- 
+import '../../css/UpdateProfile.css'
+
 const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   const { user } = useContext(UserContext);
   const [selectedCountry, setSelectedCountry] = useState(user?.location);
@@ -19,6 +19,7 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
     lastName: user?.lastName,
     email: user?.email,
   });
+
   const userData = {
     userName: data.userName,
     firstName: data.firstName,
@@ -39,7 +40,6 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
   };
 
   const canSave = [...Object.values(userData)].every(Boolean);
-  console.log(canSave)
 
   function handleClick() {
     updateData("users", user?.uid, userData);
@@ -51,6 +51,7 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
       handleClick();
     }
   }, [user]);
+
   return (
     <Modal
       isVisible={showUpdateModal}
@@ -58,76 +59,70 @@ const UpdateProfile = ({ setShowUpdateModal, showUpdateModal }) => {
         setShowUpdateModal(false);
       }}
     >
-      <div className="max-w-[350px] w-full mx-auto border border-[#C96868] rounded-2xl p-8">
+      <div className="update-profile-container">
         <div className="space-y-6">
-          <div>
-            <label className="text-gray-800 text-sm mb-2 block">Username</label>
+          <div className="input-group">
+            <label className="label">Username</label>
             <input
               name="userName"
               type="text"
-              className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+              className="input"
               placeholder="Enter username"
               value={data.userName}
               onChange={handleChange}
             />
           </div>
-          <div>
-            <label className="text-gray-800 text-sm mb-2 block">
-              firstName
-            </label>
+          <div className="input-group">
+            <label className="label">First Name</label>
             <input
               name="firstName"
               type="text"
-              className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+              className="input"
               placeholder="First Name"
               value={data.firstName}
               onChange={handleChange}
             />
           </div>
-          <div>
-            <label className="text-gray-800 text-sm mb-2 block">
-              Last Name
-            </label>
+          <div className="input-group">
+            <label className="label">Last Name</label>
             <input
               name="lastName"
               type="text"
-              className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+              className="input"
               placeholder="Last Name"
               value={data.lastName}
               onChange={handleChange}
             />
           </div>
-          <div>
-            <label className="text-gray-800 text-sm mb-2 block">Email</label>
+          <div className="input-group">
+            <label className="label">Email</label>
             <input
               name="email"
               type="text"
-              className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+              className="input"
               placeholder="Email"
               value={data.email}
               onChange={handleChange}
             />
           </div>
-          <div>
-            <label className="text-gray-800 text-sm mb-2 block">
-              Profile Picture
-            </label>
+          <div className="input-group">
+            <label className="label">Profile Picture</label>
             <ImageUpload user={user} setImgUrl={setImgUrl} />
           </div>
-          <div>
-            <label className="text-gray-800 text-sm mb-2 block">Location</label>
+          <div className="input-group">
+            <label className="label">Location</label>
             <Countries
               selectedCountry={selectedCountry}
               setSelectedCountry={setSelectedCountry}
             />
           </div>
         </div>
-        <div className="!mt-12">
+        <div className="button-container">
           <button
             type="button"
             onClick={handleClick}
             disabled={!canSave}
-            className="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-[#C96868] hover:bg-[#D2E0FB] focus:outline-[#C96868]"
+            className="update-button"
           >
             Update Profile
           </button>
