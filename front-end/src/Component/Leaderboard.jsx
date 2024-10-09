@@ -29,35 +29,24 @@ function Leaderboard() {
     <>
       {isLoggedOut ? (
         <Nav>
-          <Link
-            className="bg-gradient-to-r from-[#FADFA1] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4 mx-1"
-            to="/"
-          >
+          <Link className="home-button" to="/">
             Home
           </Link>
         </Nav>
       ) : (
-        <Nav>
-          <Link
-            className="bg-gradient-to-r from-[#FADFA1] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4 mx-1"
-            to="/"
-          >
-            Home
-          </Link>
-          <Link
-            className="bg-gradient-to-r from-[#FADFA1] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4 mx-1"
-            to={`/profile/${user?.userName}`}
-          >
-            Profile
-          </Link>
-          <Link
-            className="bg-gradient-to-r from-[#7EACB5] to-[#C96868] text-white font-bold py-2 px-4 rounded my-4 mx-1"
-            to="/"
-            onClick={handleLogout}
-          >
-            Logout
-          </Link>
-        </Nav>
+        <div className="nav-bar">
+          <Nav>
+            <Link className="logout-button" to="/" onClick={handleLogout}>
+              Logout
+            </Link>
+            <Link className="leaderboard-button" to="/leaderboard">
+              Leaderboard
+            </Link>
+            <Link className="home-button" to="/">
+              Home
+            </Link>
+          </Nav>
+        </div>
       )}
       <div className="table-container">
         <h1 className="leaderboard-header">Leaderboard</h1>

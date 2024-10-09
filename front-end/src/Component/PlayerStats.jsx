@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/AuthContext";
-import { useContext } from "react";
-
 import { readData, updateData } from "../utils/crud";
+import '../css/PlayerStats.css'
 
 const PlayerStats = () => {
   const { user } = useContext(UserContext);
@@ -30,66 +29,50 @@ const PlayerStats = () => {
   }, [stats]);
 
   return (
-    <div className=" overflow-hidden shadow rounded-lg border border-[#C96868]">
-      <div className="px-4 py-5 sm:px-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
-          {user?.userName}'s Stats
-        </h3>
+    <div className="player-stats-card">
+
+      <div className="header">
+        <h3 className="stats-header">{user?.userName}'s Stats</h3>
       </div>
-      <div className="border-t border-[#C96868] px-4 py-5 sm:p-0">
-        <dl className="sm:divide-y sm:divide-[#C96868]">
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Games played</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {stats?.gamesPlayed}
-            </dd>
+
+      <div className="content">
+
+        <dl className="stats-details">
+          <div className="stat">
+            <dt>Games played</dt>
+            <dd>{stats?.gamesPlayed}</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Highest Score</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {stats?.highScore}
-            </dd>
+
+          <div className="stat">
+            <dt>Highest Score</dt>
+            <dd>{stats?.highScore}</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Words Per Minute (latest game)
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {stats?.wpm}
-            </dd>
+
+          <div className="stat">
+            <dt>Words Per Minute (latest game)</dt>
+            <dd>{stats?.wpm}</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Characters Per Minute (latest game)
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {stats?.cpm}
-            </dd>
+
+          <div className="stat">
+            <dt>Characters Per Minute (latest game)</dt>
+            <dd>{stats?.cpm}</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Accuracy (latest game)
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {stats?.accuracy}%
-            </dd>
+
+          <div className="stat">
+            <dt>Accuracy (latest game)</dt>
+            <dd>{stats?.accuracy}%</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Average Accuracy (last ten games)
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {stats?.averageAccuracy}%
-            </dd>
+
+          <div className="stat">
+            <dt>Average Accuracy (last ten games)</dt>
+            <dd>{stats?.averageAccuracy}%</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Average Words Per Minute (last ten games)
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {stats?.averageWpm}
-            </dd>
+
+          <div className="stat">
+            <dt>Average Words Per Minute (last ten games)</dt>
+            <dd>{stats?.averageWpm}</dd>
           </div>
+          
         </dl>
       </div>
     </div>

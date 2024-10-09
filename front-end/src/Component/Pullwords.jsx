@@ -1,5 +1,5 @@
 import { readData } from "../utils/crud";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../css/Pullwords.css";
 import Userbox from "./Userbox";
 

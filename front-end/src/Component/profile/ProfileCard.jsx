@@ -1,57 +1,47 @@
+import "../../css/ProfileCard.css";
+
 const ProfileCard = ({ user }) => {
   return (
-    <div className="bg-white overflow-hidden shadow rounded-lg border border-[#C96868]">
-      <div className="px-4 py-5 sm:px-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
-          {user?.userName}'s Profile
-        </h3>
+    <div className="profile-card">
+      <div className="header">
+        <h3 className="username">{user?.userName}'s Profile</h3>
       </div>
-      <div className="border-t border-[#C96868] px-4 py-5 sm:p-0">
-        <dl className="sm:divide-y sm:divide-[#C96868]">
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Username</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {user?.userName}
-            </dd>
-          </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">First Name</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {user?.firstName}
-            </dd>
-          </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Last Name</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {user?.lastName}
-            </dd>
-          </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Email address</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {user?.email}
-            </dd>
+
+      <div className="content">
+        <dl className="profile-details">
+            <div className="detail">
+              <dt>Username</dt>
+              <dd>{user?.userName}</dd>
           </div>
 
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Location</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {user?.location}
-            </dd>
+          <div className="detail">
+            <dt>First Name</dt>
+            <dd>{user?.firstName}</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Number of Games
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {user?.gamesPlayed}
-            </dd>
+
+          <div className="detail">
+            <dt>Last Name</dt>
+            <dd>{user?.lastName}</dd>
           </div>
-          <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Highest Score</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {user?.highScore}
-            </dd>
+
+          <div className="detail">
+            <dt>Email address</dt>
+            <dd>{user?.email}</dd>
+          </div>
+
+          <div className="detail">
+            <dt>Location</dt>
+            <dd>{user?.location}</dd>
+          </div>
+
+          <div className="detail">
+            <dt>Number of Games</dt>
+            <dd>{user?.gamesPlayed}</dd>
+          </div>
+
+          <div className="detail">
+            <dt>Highest Score</dt>
+            <dd>{user?.highScore}</dd>
           </div>
         </dl>
       </div>

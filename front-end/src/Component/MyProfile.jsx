@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import ProfileCard from "./profile/ProfileCard";
 import ProfileImage from "./profile/ProfileImage";
 import UpdateProfile from "./profile/UpdateProfile";
+import "../css/MyProfile.css";
 
 function MyProfile() {
   const { user } = useContext(UserContext);
@@ -15,38 +16,34 @@ function MyProfile() {
   const handleLogout = () => {
     logout();
   };
+
   return (
     <>
-      <Nav>
-        <Link
-          className="bg-gradient-to-r from-[#7EACB5] to-[#C96868] text-white font-bold py-2 px-4 rounded my-4 mx-1"
-          to="/"
-          onClick={handleLogout}
-        >
-          Logout
-        </Link>
-        <Link
-          className="bg-gradient-to-r from-[#C96868] to-[#FADFA1] text-white font-bold py-2 px-4 rounded my-4 mx-1"
-          to="/leaderboard"
-        >
-          Leaderboard
-        </Link>
-        <Link
-          className="bg-gradient-to-r from-[#FADFA1] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4 mx-1"
-          to="/"
-        >
-          Home
-        </Link>
-      </Nav>
+      <div className="nav-bar">
+        <Nav>
+          <Link className="logout-button" to="/" onClick={handleLogout}>
+            Logout
+          </Link>
+          <Link className="leaderboard-button" to="/leaderboard">
+            Leaderboard
+          </Link>
+          <Link className="home-button" to="/">
+            Home
+          </Link>
+        </Nav>
+      </div>
+      
+      <div className="profile-container">
+        <h1 className="welcome-message">Welcome {user?.userName}</h1>
+        <div className="profile-image-container">
+          <ProfileImage user={user} />
+        </div>
 
-      <div>
-        <h1>Welcome {user?.userName}</h1>
-        <ProfileImage user={user} />
-        <div className="flex">
-          <div className="flex flex-col mr-4 ">
+        <div className="profile-content">
+          <div className="profile-card-container">
             <ProfileCard user={user} />
             <button
-              className="bg-gradient-to-r from-[#C96868] to-[#7EACB5] text-white font-bold py-2 px-4 rounded my-4"
+              className="edit-profile-button"
               onClick={() => {
                 setShowUpdateModal(true);
               }}
@@ -59,7 +56,9 @@ function MyProfile() {
             />
           </div>
 
-          <PlayerStats />
+          <div className="player-stats-container">
+            <PlayerStats />
+          </div>
         </div>
       </div>
     </>
