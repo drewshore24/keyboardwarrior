@@ -1,0 +1,100 @@
+/* MyProfile.css */
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+header {
+    background-color: #078080;
+    /* Set the background color of the header */
+    color: white;
+    /* Changed text color for better contrast */
+    padding: 1rem;
+    /* Optional: Add padding for better spacing */
+    border-radius: 0.5rem;
+    /* Optional: Ensure the corners are rounded */
+}
+
+.username {
+    color: white;
+    /* Updated to ensure consistency */
+}
+
+.welcome-message {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    /* Changed text color to white for contrast */
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-content {
+    display: flex;
+    align-items: flex-start;
+    /* Align items to the start for better visual hierarchy */
+    gap: 1.5rem;
+    /* Space between profile and stats */
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+    justify-content: center;
+    /* Center align the contents */
+}
+
+/* Additional styles for profile card and stats card */
+.profile-card-container {
+    flex: 1;
+    /* Allow the profile card to grow */
+    min-width: 250px;
+    /* Minimum width for better responsiveness */
+}
+
+.edit-profile-button {
+    background: linear-gradient(90deg, #f45d48 0%, rgba(255, 100, 100) 100%);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    transition: box-shadow 0.3s;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.edit-profile-button:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.player-stats-container {
+    flex: 1;
+    /* Allow the stats container to grow */
+    min-width: 250px;
+    /* Minimum width for better responsiveness */
+}
+
+.logout-button,
+.leaderboard-button,
+.home-button {
+    background: linear-gradient(90deg, #f45d48 0%, rgba(255, 100, 100) 100%);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+}
+
+.logout-button:hover,
+.leaderboard-button:hover,
+.home-button:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

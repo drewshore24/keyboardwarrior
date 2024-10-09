@@ -2,8 +2,6 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/AuthContext";
 import NavBar from "./NavBar";
 import WordGame from "./WordGame";
-import Login from "./Login";
-import Signup from "./SignUp";
 
 function Home() {
   const { isLoggedOut, user } = useContext(UserContext);
@@ -15,12 +13,28 @@ function Home() {
       <div>
         <NavBar />
       </div>
-      <div className="image">
-      </div>
+
       <div className="header">
         <h1>Le Keyboard Warrior</h1>
       </div>
-      {isLoggedOut ? <Login /> : <h2>Hello {user?.userName} </h2>}
+
+      <div className="welcome-message">
+        {isLoggedOut ? (
+          null
+        ) : (
+          <p
+            style={{
+              fontFamily: '"Cedarville Cursive", cursive',
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "35px",
+            }}
+          >
+            Welcome {user?.userName}{" "}
+          </p>
+        )}
+      </div>
+
       <div className="Game-Keyboard-Container">
         <WordGame
           typedLetter={typedLetter}
