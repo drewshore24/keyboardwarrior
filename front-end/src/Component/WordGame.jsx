@@ -131,10 +131,12 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
     if (gameStarted && timer === 0) {
       return (
         <>
-          <p>Time's up! Here are your stats:</p>
-          <p>WPM: {wpm}</p>
-          <p>Accuracy: {accuracy}%</p>
-          <p>CPM: {cpm}</p>
+          <div className="stats-in-text-box">
+            <p>Time's up! Here are your stats:</p>
+            <p>WPM: {wpm}</p>
+            <p>Accuracy: {accuracy}%</p>
+            <p>CPM: {cpm}</p>
+          </div>
         </>
       );
     }
@@ -220,6 +222,32 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
 
   return (
     <section className="word-game">
+      <div className="controls-container">
+        <select className="DropDown" onChange={ParagraphGen}>
+          <option className="selection" value="easy">
+            Easy
+          </option>
+          <option className="selection" value="medium">
+            Medium
+          </option>
+          <option className="selection" value="hard">
+            Hard
+          </option>
+        </select>
+
+          <p className="statistics time-r">
+            <span>{timer}</span>
+            <div
+              className="timer-bar"
+              style={{ width: `${(timer / 30) * 100}%` }}
+            />
+          </p>
+
+        <button className="Refresh" onClick={refresh}>
+          Play Again!
+        </button>
+      </div>
+
       <div className="word-game-container">
         <div className="test" onClick={handleClick}>
           <input
@@ -231,25 +259,8 @@ const WordGame = ({ typedLetter, setTypedLetter }) => {
           <div className="text-field">{conditionalRender()}</div>
         </div>
       </div>
-      <Keyboard typedLetter={typedLetter} isSpecialKey={specialKey} />
 
-      <div className="controls-container">
-        <select className="DropDown" onChange={ParagraphGen}>
-          <option className="selection" value="easy">
-            easy
-          </option>
-          <option className="selection" value="medium">
-            medium
-          </option>
-          <option className="selection" value="hard">
-            hard
-          </option>
-        </select>
-        <p className="statistics time-r">Time Remaining: {timer}</p>
-        <button className="Refresh" onClick={refresh}>
-          Play Again!
-        </button>
-      </div>
+      <Keyboard typedLetter={typedLetter} isSpecialKey={specialKey} />
     </section>
   );
 };

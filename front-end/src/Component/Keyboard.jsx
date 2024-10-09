@@ -36,6 +36,7 @@ function Keyboard({ typedLetter, isSpecialKey }) {
           <p className={`keys ${typedLetter === "r" ? `active` : ``}`}>R</p>
           <p className={`keys ${typedLetter === "t" ? `active` : ``}`}>T</p>
           <p className={`keys ${typedLetter === "y" ? `active` : ``}`}>Y</p>
+          <p className={`keys ${typedLetter === "u" ? `active` : ``}`}>U</p>
           <p className={`keys ${typedLetter === "i" ? `active` : ``}`}>I</p>
           <p className={`keys ${typedLetter === "o" ? `active` : ``}`}>O</p>
           <p className={`keys ${typedLetter === "p" ? `active` : ``}`}>P</p>
@@ -80,6 +81,7 @@ function Keyboard({ typedLetter, isSpecialKey }) {
           <p className={`keys ${typedLetter === "v" ? `active` : ``}`}>V</p>
           <p className={`keys ${typedLetter === "b" ? `active` : ``}`}>B</p>
           <p className={`keys ${typedLetter === "n" ? `active` : ``}`}>N</p>
+          <p className={`keys ${typedLetter === "m" ? `active` : ``}`}>M</p>
           <p className={`keys ${typedLetter === "," ? `active` : ``}`}>,</p>
           <p className={`keys ${typedLetter === "." ? `active` : ``}`}>.</p>
           <p className={`keys ${typedLetter === "/" ? `active` : ``}`}>/</p>

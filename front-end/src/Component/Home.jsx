@@ -15,12 +15,28 @@ function Home() {
       <div>
         <NavBar />
       </div>
-      <div className="image">
-      </div>
+
       <div className="header">
         <h1>Le Keyboard Warrior</h1>
       </div>
-      {isLoggedOut ? <Login /> : <h2>Hello {user?.userName} </h2>}
+
+      <div className="welcome-message">
+        {isLoggedOut ? (
+          <Login />
+        ) : (
+          <p
+            style={{
+              fontFamily: '"Cedarville Cursive", cursive',
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "35px",
+            }}
+          >
+            Welcome {user?.userName}{" "}
+          </p>
+        )}
+      </div>
+
       <div className="Game-Keyboard-Container">
         <WordGame
           typedLetter={typedLetter}
