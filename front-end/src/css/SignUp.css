@@ -1,0 +1,84 @@
+/* CreateUser.css */
+.login-container {
+    max-width: 350px;
+    /* Set maximum width to match previous styling */
+    width: 100%;
+    margin: auto;
+    border: 1px solid #C96868;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Add shadow for depth */
+}
+
+.input-group {
+    margin-bottom: 20px;
+    /* Space between input groups */
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    /* Space below label */
+    color: #222525;
+    font-weight: bold;
+}
+
+.input {
+    text-align: left;
+    /* Align text to the left */
+    width: calc(100% - 20px);
+    /* Full width minus padding */
+    padding: 10px;
+    border: 1px solid #078080;
+    /* Border color */
+    border-radius: 10px;
+    color: #232323;
+    transition: border-color 0.3s ease;
+    /* Transition for border color */
+}
+
+.input:focus {
+    border-color: #078080;
+    /* Change border color on focus */
+    outline: none;
+    /* Remove default outline */
+}
+
+.login-button-container {
+    margin-top: 20px;
+    /* Space above button */
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #C96868;
+    /* Button color */
+    color: #fffffe;
+    /* Button text color */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Transitions for hover effects */
+}
+
+.login-button:hover {
+    background-color: #D2E0FB;
+    /* Button hover color */
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+    color: #232323;
+}
+
+.signup-link {
+    color: #C96868;
+    /* Link color */
+    font-weight: bold;
+    text-decoration: underline;
+}
