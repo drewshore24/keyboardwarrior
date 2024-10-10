@@ -1,11 +1,8 @@
-.TextBox {
-  height: 200px;
-  width: 20em;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: black;
-  text-align: center;
+.keyboard-container{
+  border: 2px solid black;
+  background-color: #B2B3B3;
+  border-radius: 12px;
+
 }
 
 .Keyboard {
@@ -16,33 +13,21 @@
   order: 2;
   border-radius: 20px;
   border-color: black;
-  
 }
 
 .row {
   display: flex;
-  background-color: #f8f5f2;
+  background-color: #B2B3B3;
 }
 
-.keys,
-.Backspace,
-.Tab,
-.Slash,
-.Caps_Lock,
-.Enter_Key,
-.Ctrl,
-.Alt,
-.Backslash,
-.Shift_Left,
-.Shift_Right,
-.Space_Key {
-  width: 50px;
+.keys{
+  width: 70px;
   height: 50px;
   background-color: #faf9f6;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 12px;
@@ -65,78 +50,78 @@
 }
 
 .Backspace {
-  width: 185px;
+  width: 150px;
   height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 15px;
 }
 
 .Tab {
-  width: 120px;
+  width: 100px;
   height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 15px;
 }
 
 .Slash {
-  width: 155px;
+  width: 120px;
   height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 0px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 15px;
 }
 
 .Caps_Lock {
-  width: 128px;
+  width: 130px;
   height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 15px;
 }
 
 .Enter_Key {
-  width: 120px;
+  width: 160px;
   height: 50px;
   background-color: #fadfa1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 15px;
 }
 
-.Ctrl {
+.Ctrl{
   width: 120px;
   height: 50px;
   background-color: #7eacb5;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 12px;
@@ -149,7 +134,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 12px;
@@ -162,20 +147,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 12px;
 }
 
 .Shift_Left {
-  width: 124px;
+  width: 160px;
   height: 50px;
   background-color: #7eacb5;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 12px;
@@ -188,7 +173,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 12px;
@@ -202,7 +187,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px;
+  margin: 1px;
   transition: 0.2s;
   border: 2px solid #000;
   border-radius: 20px;

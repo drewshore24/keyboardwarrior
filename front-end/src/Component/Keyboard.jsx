@@ -2,7 +2,7 @@ import "../css/keyboard.css";
 
 function Keyboard({ typedLetter, isSpecialKey }) {
   return (
-    <div className="container">
+    <div className="keyboard-container">
       <section></section>
       <section className="Keyboard">
         <section className="row">
@@ -95,17 +95,17 @@ function Keyboard({ typedLetter, isSpecialKey }) {
         </section>
         <section className="row">
           <p className={`Ctrl ${isSpecialKey === "Control" ? `active` : ``}`}>
-            ⌃
+            Ctrl
           </p>
           <p className={`Alt ${isSpecialKey === "Alt" ? `active` : ``}`}>Alt</p>
           <p className={`Space_Key ${isSpecialKey === " " ? `active` : ``}`}>
             ____
           </p>
-          <p className={`Ctrl ${isSpecialKey === "Alt" ? `active` : ``}`}>
+          <p className={`Alt ${isSpecialKey === "Alt" ? `active` : ``}`}>
             Alt
           </p>
-          <p className={`Alt ${isSpecialKey === "Control" ? `active` : ``}`}>
-            ⌃
+          <p className={`Ctrl ${isSpecialKey === "Control" ? `active` : ``}`}>
+            Ctrl
           </p>
         </section>
       </section>
