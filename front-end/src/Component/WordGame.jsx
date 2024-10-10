@@ -22,7 +22,7 @@ const WordGame = ({ typedLetter, setTypedLetter, soundOn }) => {
   const { user, stats } = useContext(UserContext);
   const inputRef = useRef(null);
   const [strArray, setStrArr] = useState([]);
-  const [timer, setTimer] = useState(30);
+  const [timer, setTimer] = useState(15);
   const [timerStarted, setTimerStarted] = useState(false);
   const [correctChar, setCorrectChar] = useState(0);
   const [cpm, setCpm] = useState(0);
@@ -149,7 +149,7 @@ const WordGame = ({ typedLetter, setTypedLetter, soundOn }) => {
   function refresh() {
     setTypedLetter(null);
     setStrArr([]);
-    setTimer(30);
+    setTimer(15);
     setTimerStarted(false);
     setCorrectChar(0);
     setCpm(0);
@@ -256,7 +256,7 @@ const WordGame = ({ typedLetter, setTypedLetter, soundOn }) => {
             <span>{timer}</span>
             <div
               className="timer-bar"
-              style={{ width: `${(timer / 30) * 100}%` }}
+              style={{ width: `${(timer / 15) * 100}%` }}
             />
           </p>
 
