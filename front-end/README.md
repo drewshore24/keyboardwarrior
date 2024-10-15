@@ -30,7 +30,3 @@ Technologies Used
 Contributing
 
 Contributions are welcome! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
-
-Contact
-
-For questions or feedback, please reach out to me at andrewshore123@hotmail.com
